@@ -2,7 +2,7 @@
 
 import sys
 from PyQt5 import QtWidgets
-from PyQt5.QtCore import QThread, pyqtSignal
+from PyQt5.QtCore import QThread, pyqtSignal, QTimer
 import rclpy
 from rclpy.node import Node
 from coffee_system_interface.srv import MySrv
@@ -37,9 +37,10 @@ class KitchenNode(Node):
     def __init__(self):
         super().__init__('kitchen_node')
         self.service = self.create_service(MySrv, 'order_food', self.handle_order_request)
-        self.init_pose = [-2.0, -0.5, 0.0, 1.0] # pose:x,y orient:z,w
+        self.init_pose = [-1.92, 0.0, 0.0, 1.0] # pose:x,y orient:z,w
 
         self.goal_poses = {
+            0: [-1.92, 0.0],
             1: [1.07, 1.28],
             2: [1.03, 0.17],
             3: [1.07, -0.95],
@@ -255,8 +256,30 @@ class KitchenApp(QtWidgets.QMainWindow):
     def complete_order(self, table_num, order_item):
         """주문 완료 상태로 표시"""
         order_item.setText(order_item.text() + " - 완료")
-        self.node.navigate_to_pose_send_goal(table_num) # 네비게이션 작동
         self.node.get_logger().info("주문 완료로 표시되었습니다.")
+        # self.node.navigate_to_pose_send_goal(table_num) # 네비게이션 작동
+        self.navigate_to_table_and_return(table_num) # 테이블로 이동 후 복귀
+
+    # 60초후 복귀
+    def navigate_to_table_and_return(self, table_num):
+        """로봇을 테이블로 이동하고 60초 후 초기 위치로 복귀"""
+        self.node.get_logger().info(f"테이블 {table_num}로 이동을 시작합니다.")
+
+        # 테이블로 이동
+        if self.node.navigate_to_pose_send_goal(table_num):
+            self.node.get_logger().info(f"테이블 {table_num}에 도착했습니다. 60초 대기 중...")
+            
+            # 60초 대기 후 init_pose로 복귀
+            QTimer.singleShot(60000, self.return_to_initial_pose)  # 60초 후 실행
+    
+    def return_to_initial_pose(self):
+        """로봇을 초기 위치로 복귀"""
+        self.node.get_logger().info("초기 위치로 복귀를 시작합니다.")
+        if self.node.navigate_to_pose_send_goal(0):  # 초기 위치 이동
+            self.node.get_logger().info("초기 위치로 복귀 완료.")
+        else:
+            self.node.get_logger().info("초기 위치 복귀 실패.")
+
 
     def closeEvent(self, event):
         """앱 종료 시 ROS2 스레드 정리"""
