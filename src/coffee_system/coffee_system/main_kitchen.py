@@ -13,6 +13,7 @@ from nav2_msgs.srv import SetInitialPose
 from geometry_msgs.msg import Point, Quaternion
 from rclpy.action import ActionClient
 from nav2_msgs.action import NavigateToPose
+from rclpy.action.client import GoalStatus
 
 
 
@@ -38,6 +39,18 @@ class KitchenNode(Node):
         self.service = self.create_service(MySrv, 'order_food', self.handle_order_request)
         self.init_pose = [-2.0, -0.5, 0.0, 1.0] # pose:x,y orient:z,w
 
+        self.goal_poses = {
+            1: [1.07, 1.28],
+            2: [1.03, 0.17],
+            3: [1.07, -0.95],
+            4: [-0.12, 1.22],
+            5: [-0.06, 0.17],
+            6: [-0.10, -0.97],
+            7: [-1.16, 1.24],
+            8: [-1.17, 0.13],
+            9: [-1.14, -0.89]
+        }
+
         #######################################################################################
         # pose 서비스 클라이언트 설정
         self.set_initial_pose_service_client = self.create_client(
@@ -45,11 +58,11 @@ class KitchenNode(Node):
             '/set_initial_pose'
             )
         
-        # # turtlebot3 동작하기 위해서 네비게이션 전달
-        # self.navigate_to_pose_action_client = ActionClient(
-        #     self, 
-        #     NavigateToPose, 
-        #     "navigate_to_pose")
+        # turtlebot3 동작하기 위해서 네비게이션 전달
+        self.navigate_to_pose_action_client = ActionClient(
+            self, 
+            NavigateToPose, 
+            "navigate_to_pose")
                 
         # Init function
         while not self.set_initial_pose_service_client.wait_for_service(timeout_sec=1.0):
@@ -88,7 +101,67 @@ class KitchenNode(Node):
         self.get_logger().info(message) # 메세지 전달 부분
         
         return future.result()
+
+    ## Action client NAVIGATE
+    def navigate_to_pose_send_goal(self, i):
+        wait_count = 1
+        while not self.navigate_to_pose_action_client.wait_for_server(timeout_sec=0.1):
+            if wait_count > 3:
+                message = "[WARN] Navigate action server is not available."
+                # self.gui.textBrowser.append(message)
+                self.get_logger().info(message) # 메세지 전달 부분
+                return False
+            wait_count += 1
+            
+        goal_msg = NavigateToPose.Goal()
+        goal_msg.pose.header.frame_id = "map"
+        goal_msg.pose.pose.position.x = self.goal_poses[i][0]
+        goal_msg.pose.pose.position.y = self.goal_poses[i][1]
+        goal_msg.pose.pose.position.z = 0.0
+        goal_msg.pose.pose.orientation.x = 0.0
+        goal_msg.pose.pose.orientation.y = 0.0
+        goal_msg.pose.pose.orientation.z = 0.0
+        goal_msg.pose.pose.orientation.w = 1.0
+
+        self.send_goal_future = self.navigate_to_pose_action_client.send_goal_async(
+            goal_msg,
+            feedback_callback=self.navigate_to_pose_action_feedback)
+        self.send_goal_future.add_done_callback(self.navigate_to_pose_action_goal)
+        
+        return True
     
+    def navigate_to_pose_action_goal(self, future):
+        goal_handle = future.result()
+        if not goal_handle.accepted:
+            message = "[WARN] Action goal rejected."
+            # self.gui.textBrowser.append(message)
+            self.get_logger().info(message)
+            return
+
+        message = "[INFO] Action goal accepted."
+        # self.gui.textBrowser.append(message)
+        self.get_logger().info(message)
+        self.action_result_future = goal_handle.get_result_async()
+        self.action_result_future.add_done_callback(self.navigate_to_pose_action_result)
+
+    def navigate_to_pose_action_feedback(self, feedback_msg):
+        action_feedback = feedback_msg.feedback
+
+    def navigate_to_pose_action_result(self, future):
+        action_status = future.result().status
+        action_result = future.result().result
+        if action_status == GoalStatus.STATUS_SUCCEEDED:
+
+            message = "[INFO] Action succeeded!."
+            # self.gui.textBrowser.append(message)
+            self.get_logger().info(message) # 메세지 전달 부분
+
+        else:
+            message = f"[WARN] Action failed with status: {action_status}"
+            # self.gui.textBrowser.append(message)
+            self.get_logger().info(message) # 메세지 전달 부분
+    
+
 class KitchenApp(QtWidgets.QMainWindow):
     order_received = pyqtSignal(int, list)  # 주문 수신 시그널
 
@@ -151,7 +224,7 @@ class KitchenApp(QtWidgets.QMainWindow):
         order_layout.addWidget(in_progress_button)
         
         complete_button = QtWidgets.QPushButton("조리 완료")
-        complete_button.clicked.connect(partial(self.complete_order, order_item))
+        complete_button.clicked.connect(partial(self.complete_order, table_num, order_item))
         order_layout.addWidget(complete_button)
 
         # 주문 항목 및 위젯 설정
@@ -179,9 +252,10 @@ class KitchenApp(QtWidgets.QMainWindow):
         order_item.setText(order_item.text() + f" - {status}")
         self.node.get_logger().info(f"주문 상태 업데이트: {status}")
 
-    def complete_order(self, order_item):
+    def complete_order(self, table_num, order_item):
         """주문 완료 상태로 표시"""
         order_item.setText(order_item.text() + " - 완료")
+        self.node.navigate_to_pose_send_goal(table_num) # 네비게이션 작동
         self.node.get_logger().info("주문 완료로 표시되었습니다.")
 
     def closeEvent(self, event):
