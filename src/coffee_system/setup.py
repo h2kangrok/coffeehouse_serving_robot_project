@@ -22,6 +22,7 @@ setup(
         'console_scripts': [
             'order_client = coffee_system.main_kiosk:main',
             'order_server = coffee_system.main_kitchen:main',
+            'turtlebot_gui = coffee_system.turtlebot_gui:main',
         ],
     },
 )
