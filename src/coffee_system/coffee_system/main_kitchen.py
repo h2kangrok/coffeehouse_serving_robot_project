@@ -8,6 +8,14 @@ from rclpy.node import Node
 from coffee_system_interface.srv import MySrv
 from functools import partial
 
+# turtlebot3
+from nav2_msgs.srv import SetInitialPose
+from geometry_msgs.msg import Point, Quaternion
+from rclpy.action import ActionClient
+from nav2_msgs.action import NavigateToPose
+
+
+
 class ROS2Thread(QThread):
     """별도의 스레드에서 rclpy 스핀을 관리"""
     def __init__(self, node):
@@ -28,6 +36,27 @@ class KitchenNode(Node):
     def __init__(self):
         super().__init__('kitchen_node')
         self.service = self.create_service(MySrv, 'order_food', self.handle_order_request)
+        self.init_pose = [-2.0, -0.5, 0.0, 1.0] # pose:x,y orient:z,w
+
+        #######################################################################################
+        # pose 서비스 클라이언트 설정
+        self.set_initial_pose_service_client = self.create_client(
+            SetInitialPose, 
+            '/set_initial_pose'
+            )
+        
+        # # turtlebot3 동작하기 위해서 네비게이션 전달
+        # self.navigate_to_pose_action_client = ActionClient(
+        #     self, 
+        #     NavigateToPose, 
+        #     "navigate_to_pose")
+                
+        # Init function
+        while not self.set_initial_pose_service_client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('Service /set_initial_pose not available, waiting again...')
+        self.set_initial_pose(*self.init_pose) # 언패킹하여 각 인수로 전달
+        #######################################################################################
+
 
     def handle_order_request(self, request, response):
         """키오스크에서 들어온 주문 요청을 처리"""
@@ -36,6 +65,30 @@ class KitchenNode(Node):
         response.message = "주문 전송 완료"
         return response
 
+    # Service client SET INIT POSE ESTIMATE
+    def set_initial_pose(self, x,y,z,w):
+        req = SetInitialPose.Request()
+        req.pose.header.frame_id = 'map'
+        req.pose.pose.pose.position = Point(x=x, y=y, z=0.0)
+        req.pose.pose.pose.orientation = Quaternion(x=0.0, y=0.0, z=z, w=w)
+        req.pose.pose.covariance = [0.1, 0.0, 0.0, 0.0, 0.0, 0.1,
+                                    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+                                    0.0, 0.0, 0.1, 0.0, 0.0, 0.0,
+                                    0.0, 0.0, 0.0, 0.01, 0.0, 0.0,
+                                    0.0, 0.0, 0.0, 0.0, 0.01, 0.0,
+                                    0.0, 0.0, 0.0, 0.0, 0.0, 0.01]
+
+        future = self.set_initial_pose_service_client.call_async(req)
+        
+        if future.result() is not None:
+            message = "[INFO] Initial pose set successfully"
+        else:
+            message = "[WARN] Failed to set initial pose"
+            
+        self.get_logger().info(message) # 메세지 전달 부분
+        
+        return future.result()
+    
 class KitchenApp(QtWidgets.QMainWindow):
     order_received = pyqtSignal(int, list)  # 주문 수신 시그널
 
