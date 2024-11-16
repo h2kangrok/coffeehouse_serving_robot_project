@@ -1,0 +1,1 @@
+/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_generator_c/coffee_system_interface/msg/detail/my_msg__type_support.h

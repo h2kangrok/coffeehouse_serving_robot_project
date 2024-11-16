@@ -1,0 +1,25 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/coffee_system_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/coffee_system_interface/action/detail/my_action__type_support.c.o"
+  "CMakeFiles/coffee_system_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/coffee_system_interface/action/detail/my_action__type_support.c.o.d"
+  "CMakeFiles/coffee_system_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/coffee_system_interface/msg/detail/call_staff__type_support.c.o"
+  "CMakeFiles/coffee_system_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/coffee_system_interface/msg/detail/call_staff__type_support.c.o.d"
+  "CMakeFiles/coffee_system_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/coffee_system_interface/msg/detail/my_msg__type_support.c.o"
+  "CMakeFiles/coffee_system_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/coffee_system_interface/msg/detail/my_msg__type_support.c.o.d"
+  "CMakeFiles/coffee_system_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/coffee_system_interface/srv/detail/my_srv__type_support.c.o"
+  "CMakeFiles/coffee_system_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/coffee_system_interface/srv/detail/my_srv__type_support.c.o.d"
+  "libcoffee_system_interface__rosidl_typesupport_introspection_c.pdb"
+  "libcoffee_system_interface__rosidl_typesupport_introspection_c.so"
+  "rosidl_typesupport_introspection_c/coffee_system_interface/action/detail/my_action__rosidl_typesupport_introspection_c.h"
+  "rosidl_typesupport_introspection_c/coffee_system_interface/action/detail/my_action__type_support.c"
+  "rosidl_typesupport_introspection_c/coffee_system_interface/msg/detail/call_staff__rosidl_typesupport_introspection_c.h"
+  "rosidl_typesupport_introspection_c/coffee_system_interface/msg/detail/call_staff__type_support.c"
+  "rosidl_typesupport_introspection_c/coffee_system_interface/msg/detail/my_msg__rosidl_typesupport_introspection_c.h"
+  "rosidl_typesupport_introspection_c/coffee_system_interface/msg/detail/my_msg__type_support.c"
+  "rosidl_typesupport_introspection_c/coffee_system_interface/srv/detail/my_srv__rosidl_typesupport_introspection_c.h"
+  "rosidl_typesupport_introspection_c/coffee_system_interface/srv/detail/my_srv__type_support.c"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/coffee_system_interface__rosidl_typesupport_introspection_c.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

@@ -1,0 +1,1 @@
+/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake

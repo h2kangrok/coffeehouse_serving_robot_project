@@ -1,0 +1,285 @@
+[0.010s] Invoking command in '/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yoonkangrok/turtlebot3_ws/install/turtlebot3_teleop:/home/yoonkangrok/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake /home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface
+[0.135s] -- The C compiler identification is GNU 11.4.0
+[0.221s] -- The CXX compiler identification is GNU 11.4.0
+[0.230s] -- Detecting C compiler ABI info
+[0.295s] -- Detecting C compiler ABI info - done
+[0.303s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.303s] -- Detecting C compile features
+[0.304s] -- Detecting C compile features - done
+[0.307s] -- Detecting CXX compiler ABI info
+[0.372s] -- Detecting CXX compiler ABI info - done
+[0.378s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.378s] -- Detecting CXX compile features
+[0.379s] -- Detecting CXX compile features - done
+[0.389s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.530s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.585s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.624s] -- Found builtin_interfaces: 1.2.1 (/opt/ros/humble/share/builtin_interfaces/cmake)
+[0.663s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.670s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.680s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.696s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.714s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.730s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.987s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[1.263s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.364s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.385s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[1.389s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[1.413s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[1.413s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.413s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[1.413s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[1.431s] -- Found PythonExtra: .so  
+[1.473s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.502s] -- Added test 'lint_cmake' to check CMake code style
+[1.503s] -- Added test 'xmllint' to check XML markup files
+[1.507s] -- Configuring done
+[1.534s] -- Generating done
+[1.536s] -- Build files have been written to: /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface
+[1.546s] Invoked command in '/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yoonkangrok/turtlebot3_ws/install/turtlebot3_teleop:/home/yoonkangrok/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake /home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface
+[1.548s] Invoking command in '/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yoonkangrok/turtlebot3_ws/install/turtlebot3_teleop:/home/yoonkangrok/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --build /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface -- -j8 -l8
+[1.585s] [  1%] [34m[1mGenerating C code for ROS interfaces[0m
+[1.595s] [  3%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[1.602s] [  3%] Built target ament_cmake_python_symlink_coffee_system_interface
+[1.835s] running egg_info
+[1.835s] creating coffee_system_interface.egg-info
+[1.835s] writing coffee_system_interface.egg-info/PKG-INFO
+[1.835s] writing dependency_links to coffee_system_interface.egg-info/dependency_links.txt
+[1.835s] writing top-level names to coffee_system_interface.egg-info/top_level.txt
+[1.836s] writing manifest file 'coffee_system_interface.egg-info/SOURCES.txt'
+[1.838s] reading manifest file 'coffee_system_interface.egg-info/SOURCES.txt'
+[1.839s] writing manifest file 'coffee_system_interface.egg-info/SOURCES.txt'
+[1.861s] [  3%] Built target ament_cmake_python_build_coffee_system_interface_egg
+[2.203s] [  3%] Built target coffee_system_interface__cpp
+[2.212s] [  9%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[2.212s] [  9%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[2.212s] [  9%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[2.225s] [ 10%] [32mBuilding C object CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/my_msg__functions.c.o[0m
+[2.226s] [ 16%] [32mBuilding C object CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/srv/detail/my_srv__functions.c.o[0m
+[2.227s] [ 16%] [32mBuilding C object CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/call_staff__functions.c.o[0m
+[2.227s] [ 16%] [32mBuilding C object CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/action/detail/my_action__functions.c.o[0m
+[2.376s] [ 18%] [32m[1mLinking C shared library libcoffee_system_interface__rosidl_generator_c.so[0m
+[2.408s] [ 18%] Built target coffee_system_interface__rosidl_generator_c
+[2.417s] [ 20%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[2.420s] [ 23%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[2.420s] [ 23%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[2.841s] [ 25%] [32mBuilding CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/coffee_system_interface/msg/detail/dds_fastrtps/my_msg__type_support.cpp.o[0m
+[2.843s] [ 29%] [32mBuilding CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/coffee_system_interface/msg/detail/dds_fastrtps/call_staff__type_support.cpp.o[0m
+[2.843s] [ 29%] [32mBuilding CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/coffee_system_interface/srv/detail/dds_fastrtps/my_srv__type_support.cpp.o[0m
+[2.852s] [ 30%] [32mBuilding CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/coffee_system_interface/msg/my_msg__type_support.cpp.o[0m
+[2.922s] [ 32%] [32mBuilding CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/coffee_system_interface/msg/my_msg__type_support.cpp.o[0m
+[2.959s] [ 34%] [32mBuilding CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/coffee_system_interface/msg/call_staff__type_support.cpp.o[0m
+[3.003s] [ 36%] [32mBuilding CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/coffee_system_interface/srv/my_srv__type_support.cpp.o[0m
+[3.040s] [ 38%] [32mBuilding CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/coffee_system_interface/action/my_action__type_support.cpp.o[0m
+[3.089s] [ 40%] [32mBuilding CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/coffee_system_interface/msg/detail/my_msg__type_support.cpp.o[0m
+[3.109s] [ 41%] [32m[1mLinking CXX shared library libcoffee_system_interface__rosidl_typesupport_c.so[0m
+[3.165s] [ 41%] Built target coffee_system_interface__rosidl_typesupport_c
+[3.176s] [ 43%] [32mBuilding CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/coffee_system_interface/msg/call_staff__type_support.cpp.o[0m
+[3.182s] [ 45%] [32mBuilding CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/coffee_system_interface/msg/detail/call_staff__type_support.cpp.o[0m
+[3.330s] [ 47%] [32mBuilding CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/coffee_system_interface/srv/my_srv__type_support.cpp.o[0m
+[3.337s] [ 49%] [32mBuilding CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/coffee_system_interface/srv/detail/my_srv__type_support.cpp.o[0m
+[3.422s] [ 50%] [32mBuilding C object CMakeFiles/coffee_system_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/coffee_system_interface/msg/detail/my_msg__type_support.c.o[0m
+[3.430s] [ 52%] [32mBuilding CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/coffee_system_interface/action/detail/dds_fastrtps/my_action__type_support.cpp.o[0m
+[3.466s] [ 54%] [32mBuilding C object CMakeFiles/coffee_system_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/coffee_system_interface/msg/detail/call_staff__type_support.c.o[0m
+[3.472s] [ 56%] [32mBuilding CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/my_msg__type_support_c.cpp.o[0m
+[3.493s] [ 58%] [32mBuilding CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/call_staff__type_support_c.cpp.o[0m
+[3.516s] [ 60%] [32mBuilding C object CMakeFiles/coffee_system_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/coffee_system_interface/srv/detail/my_srv__type_support.c.o[0m
+[3.589s] [ 61%] [32mBuilding C object CMakeFiles/coffee_system_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/coffee_system_interface/action/detail/my_action__type_support.c.o[0m
+[3.613s] [ 63%] [32mBuilding CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/srv/detail/my_srv__type_support_c.cpp.o[0m
+[3.663s] [ 65%] [32mBuilding CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/coffee_system_interface/action/my_action__type_support.cpp.o[0m
+[3.694s] [ 67%] [32m[1mLinking C shared library libcoffee_system_interface__rosidl_typesupport_introspection_c.so[0m
+[3.709s] [ 69%] [32mBuilding CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/action/detail/my_action__type_support_c.cpp.o[0m
+[3.742s] [ 69%] Built target coffee_system_interface__rosidl_typesupport_introspection_c
+[3.754s] [ 70%] [32mBuilding CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/coffee_system_interface/action/detail/my_action__type_support.cpp.o[0m
+[4.133s] [ 72%] [32m[1mLinking CXX shared library libcoffee_system_interface__rosidl_typesupport_cpp.so[0m
+[4.163s] [ 74%] [32m[1mLinking CXX shared library libcoffee_system_interface__rosidl_typesupport_fastrtps_cpp.so[0m
+[4.166s] [ 76%] [32m[1mLinking CXX shared library libcoffee_system_interface__rosidl_typesupport_fastrtps_c.so[0m
+[4.174s] [ 76%] Built target coffee_system_interface__rosidl_typesupport_cpp
+[4.242s] [ 76%] Built target coffee_system_interface__rosidl_typesupport_fastrtps_cpp
+[4.244s] [ 76%] Built target coffee_system_interface__rosidl_typesupport_fastrtps_c
+[4.281s] [ 78%] [32m[1mLinking CXX shared library libcoffee_system_interface__rosidl_typesupport_introspection_cpp.so[0m
+[4.344s] [ 78%] Built target coffee_system_interface__rosidl_typesupport_introspection_cpp
+[4.363s] [ 78%] Built target coffee_system_interface
+[4.381s] [ 80%] [34m[1mGenerating Python code for ROS interfaces[0m
+[5.349s] [ 80%] Built target coffee_system_interface__py
+[5.367s] [ 87%] [32mBuilding C object CMakeFiles/coffee_system_interface__rosidl_generator_py.dir/rosidl_generator_py/coffee_system_interface/action/_my_action_s.c.o[0m
+[5.367s] [ 87%] [32mBuilding C object CMakeFiles/coffee_system_interface__rosidl_generator_py.dir/rosidl_generator_py/coffee_system_interface/msg/_call_staff_s.c.o[0m
+[5.367s] [ 87%] [32mBuilding C object CMakeFiles/coffee_system_interface__rosidl_generator_py.dir/rosidl_generator_py/coffee_system_interface/msg/_my_msg_s.c.o[0m
+[5.367s] [ 87%] [32mBuilding C object CMakeFiles/coffee_system_interface__rosidl_generator_py.dir/rosidl_generator_py/coffee_system_interface/srv/_my_srv_s.c.o[0m
+[5.494s] [ 89%] [32m[1mLinking C shared library rosidl_generator_py/coffee_system_interface/libcoffee_system_interface__rosidl_generator_py.so[0m
+[5.527s] [ 89%] Built target coffee_system_interface__rosidl_generator_py
+[5.545s] [ 94%] [32mBuilding C object CMakeFiles/coffee_system_interface__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/coffee_system_interface/_coffee_system_interface_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[5.545s] [ 94%] [32mBuilding C object CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/coffee_system_interface/_coffee_system_interface_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[5.545s] [ 94%] [32mBuilding C object CMakeFiles/coffee_system_interface__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/coffee_system_interface/_coffee_system_interface_s.ep.rosidl_typesupport_c.c.o[0m
+[5.648s] [ 98%] [32m[1mLinking C shared library rosidl_generator_py/coffee_system_interface/coffee_system_interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[5.648s] [ 98%] [32m[1mLinking C shared library rosidl_generator_py/coffee_system_interface/coffee_system_interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[5.653s] [100%] [32m[1mLinking C shared library rosidl_generator_py/coffee_system_interface/coffee_system_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[5.681s] [100%] Built target coffee_system_interface__rosidl_typesupport_c__pyext
+[5.681s] [100%] Built target coffee_system_interface__rosidl_typesupport_introspection_c__pyext
+[5.687s] [100%] Built target coffee_system_interface__rosidl_typesupport_fastrtps_c__pyext
+[5.697s] Invoked command in '/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yoonkangrok/turtlebot3_ws/install/turtlebot3_teleop:/home/yoonkangrok/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --build /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface -- -j8 -l8
+[5.801s] Invoking command in '/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yoonkangrok/turtlebot3_ws/install/turtlebot3_teleop:/home/yoonkangrok/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --install /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface
+[5.807s] -- Install configuration: ""
+[5.808s] -- Execute custom install script
+[5.808s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/ament_index/resource_index/rosidl_interfaces/coffee_system_interface
+[5.818s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/action/detail/my_action__functions.h
+[5.826s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/action/detail/my_action__struct.h
+[5.833s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/action/detail/my_action__type_support.h
+[5.840s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/action/my_action.h
+[5.848s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/call_staff.h
+[5.855s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/detail/call_staff__functions.h
+[5.862s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/detail/call_staff__struct.h
+[5.869s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/detail/call_staff__type_support.h
+[5.876s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/detail/my_msg__functions.h
+[5.883s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/detail/my_msg__struct.h
+[5.891s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/detail/my_msg__type_support.h
+[5.898s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/my_msg.h
+[5.904s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/rosidl_generator_c__visibility_control.h
+[5.911s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/srv/detail/my_srv__functions.h
+[5.918s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/srv/detail/my_srv__struct.h
+[5.925s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/srv/detail/my_srv__type_support.h
+[5.932s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/srv/my_srv.h
+[5.940s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/environment/library_path.sh
+[5.947s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/environment/library_path.dsv
+[5.955s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/action/detail/my_action__rosidl_typesupport_fastrtps_c.h
+[5.962s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/detail/call_staff__rosidl_typesupport_fastrtps_c.h
+[5.969s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/detail/my_msg__rosidl_typesupport_fastrtps_c.h
+[5.976s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[5.983s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/srv/detail/my_srv__rosidl_typesupport_fastrtps_c.h
+[5.991s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/action/detail/my_action__builder.hpp
+[5.997s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/action/detail/my_action__struct.hpp
+[6.004s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/action/detail/my_action__traits.hpp
+[6.011s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/action/my_action.hpp
+[6.018s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/call_staff.hpp
+[6.025s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/detail/call_staff__builder.hpp
+[6.032s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/detail/call_staff__struct.hpp
+[6.039s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/detail/call_staff__traits.hpp
+[6.046s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/detail/my_msg__builder.hpp
+[6.054s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/detail/my_msg__struct.hpp
+[6.061s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/detail/my_msg__traits.hpp
+[6.068s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/my_msg.hpp
+[6.075s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/srv/detail/my_srv__builder.hpp
+[6.082s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/srv/detail/my_srv__struct.hpp
+[6.089s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/srv/detail/my_srv__traits.hpp
+[6.096s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/srv/my_srv.hpp
+[6.105s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/action/detail/my_action__rosidl_typesupport_fastrtps_cpp.hpp
+[6.112s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/detail/call_staff__rosidl_typesupport_fastrtps_cpp.hpp
+[6.119s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/detail/my_msg__rosidl_typesupport_fastrtps_cpp.hpp
+[6.127s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[6.134s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/srv/detail/my_srv__rosidl_typesupport_fastrtps_cpp.hpp
+[6.142s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/action/detail/my_action__rosidl_typesupport_introspection_c.h
+[6.150s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/detail/call_staff__rosidl_typesupport_introspection_c.h
+[6.158s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/detail/my_msg__rosidl_typesupport_introspection_c.h
+[6.165s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[6.172s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/srv/detail/my_srv__rosidl_typesupport_introspection_c.h
+[6.180s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/action/detail/my_action__rosidl_typesupport_introspection_cpp.hpp
+[6.187s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/detail/call_staff__rosidl_typesupport_introspection_cpp.hpp
+[6.194s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/msg/detail/my_msg__rosidl_typesupport_introspection_cpp.hpp
+[6.201s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/include/coffee_system_interface/coffee_system_interface/srv/detail/my_srv__rosidl_typesupport_introspection_cpp.hpp
+[6.208s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/environment/pythonpath.sh
+[6.215s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/environment/pythonpath.dsv
+[6.223s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface-0.0.0-py3.10.egg-info/PKG-INFO
+[6.230s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface-0.0.0-py3.10.egg-info/SOURCES.txt
+[6.237s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface-0.0.0-py3.10.egg-info/dependency_links.txt
+[6.244s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface-0.0.0-py3.10.egg-info/top_level.txt
+[6.251s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/__init__.py
+[6.259s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/_coffee_system_interface_s.ep.rosidl_typesupport_c.c
+[6.266s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/_coffee_system_interface_s.ep.rosidl_typesupport_fastrtps_c.c
+[6.272s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/_coffee_system_interface_s.ep.rosidl_typesupport_introspection_c.c
+[6.279s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/action/__init__.py
+[6.286s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/action/_my_action.py
+[6.293s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/action/_my_action_s.c
+[6.300s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/coffee_system_interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[6.307s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/coffee_system_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[6.314s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/coffee_system_interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[6.321s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/libcoffee_system_interface__rosidl_generator_py.so
+[6.328s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/msg/__init__.py
+[6.335s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/msg/_call_staff.py
+[6.343s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/msg/_call_staff_s.c
+[6.351s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/msg/_my_msg.py
+[6.358s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/msg/_my_msg_s.c
+[6.366s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/srv/__init__.py
+[6.373s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/srv/_my_srv.py
+[6.380s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/srv/_my_srv_s.c
+[6.387s] -- Up-to-date symlink: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/coffee_system_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[6.388s] -- Up-to-date symlink: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/coffee_system_interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[6.388s] -- Up-to-date symlink: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/coffee_system_interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[6.388s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/msg/MyMsg.idl
+[6.395s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/msg/CallStaff.idl
+[6.411s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/srv/MySrv.idl
+[6.421s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/action/MyAction.idl
+[6.428s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/msg/MyMsg.msg
+[6.435s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/msg/CallStaff.msg
+[6.442s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/srv/MySrv.srv
+[6.449s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/srv/MySrv_Request.msg
+[6.457s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/srv/MySrv_Response.msg
+[6.464s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/action/MyAction.action
+[6.471s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/ament_index/resource_index/package_run_dependencies/coffee_system_interface
+[6.478s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/ament_index/resource_index/parent_prefix_path/coffee_system_interface
+[6.486s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/environment/ament_prefix_path.sh
+[6.492s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/environment/ament_prefix_path.dsv
+[6.500s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/environment/path.sh
+[6.507s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/environment/path.dsv
+[6.514s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/local_setup.bash
+[6.521s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/local_setup.sh
+[6.528s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/local_setup.zsh
+[6.536s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/local_setup.dsv
+[6.544s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/package.dsv
+[6.551s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/ament_index/resource_index/packages/coffee_system_interface
+[6.559s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/rosidl_cmake-extras.cmake
+[6.567s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/ament_cmake_export_dependencies-extras.cmake
+[6.574s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/ament_cmake_export_include_directories-extras.cmake
+[6.581s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/ament_cmake_export_libraries-extras.cmake
+[6.588s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/ament_cmake_export_targets-extras.cmake
+[6.595s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[6.603s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[6.610s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/coffee_system_interfaceConfig.cmake
+[6.616s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/coffee_system_interfaceConfig-version.cmake
+[6.623s] -- Symlinking: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/package.xml
+[6.631s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/lib/libcoffee_system_interface__rosidl_generator_c.so
+[6.631s] -- Set runtime path of "/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/lib/libcoffee_system_interface__rosidl_generator_c.so" to ""
+[6.631s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/lib/libcoffee_system_interface__rosidl_typesupport_fastrtps_c.so
+[6.631s] -- Set runtime path of "/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/lib/libcoffee_system_interface__rosidl_typesupport_fastrtps_c.so" to ""
+[6.631s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/lib/libcoffee_system_interface__rosidl_typesupport_fastrtps_cpp.so
+[6.632s] -- Set runtime path of "/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/lib/libcoffee_system_interface__rosidl_typesupport_fastrtps_cpp.so" to ""
+[6.632s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/lib/libcoffee_system_interface__rosidl_typesupport_introspection_c.so
+[6.632s] -- Set runtime path of "/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/lib/libcoffee_system_interface__rosidl_typesupport_introspection_c.so" to ""
+[6.633s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/lib/libcoffee_system_interface__rosidl_typesupport_c.so
+[6.633s] -- Set runtime path of "/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/lib/libcoffee_system_interface__rosidl_typesupport_c.so" to ""
+[6.633s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/lib/libcoffee_system_interface__rosidl_typesupport_introspection_cpp.so
+[6.633s] -- Set runtime path of "/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/lib/libcoffee_system_interface__rosidl_typesupport_introspection_cpp.so" to ""
+[6.633s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/lib/libcoffee_system_interface__rosidl_typesupport_cpp.so
+[6.633s] -- Set runtime path of "/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/lib/libcoffee_system_interface__rosidl_typesupport_cpp.so" to ""
+[6.674s] Listing '/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface'...
+[6.674s] Compiling '/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/__init__.py'...
+[6.674s] Listing '/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/action'...
+[6.674s] Compiling '/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/action/__init__.py'...
+[6.674s] Compiling '/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/action/_my_action.py'...
+[6.674s] Listing '/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/msg'...
+[6.674s] Compiling '/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/msg/__init__.py'...
+[6.675s] Compiling '/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/msg/_call_staff.py'...
+[6.675s] Compiling '/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/msg/_my_msg.py'...
+[6.675s] Listing '/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/srv'...
+[6.675s] Compiling '/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/srv/__init__.py'...
+[6.675s] Compiling '/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/local/lib/python3.10/dist-packages/coffee_system_interface/srv/_my_srv.py'...
+[6.678s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/lib/libcoffee_system_interface__rosidl_generator_py.so
+[6.678s] -- Set runtime path of "/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/lib/libcoffee_system_interface__rosidl_generator_py.so" to ""
+[6.678s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/export_coffee_system_interface__rosidl_generator_cExport.cmake
+[6.679s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/export_coffee_system_interface__rosidl_generator_cExport-noconfig.cmake
+[6.679s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/export_coffee_system_interface__rosidl_typesupport_fastrtps_cExport.cmake
+[6.679s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/export_coffee_system_interface__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[6.679s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/export_coffee_system_interface__rosidl_generator_cppExport.cmake
+[6.679s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/export_coffee_system_interface__rosidl_typesupport_fastrtps_cppExport.cmake
+[6.679s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/export_coffee_system_interface__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[6.679s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/coffee_system_interface__rosidl_typesupport_introspection_cExport.cmake
+[6.679s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/coffee_system_interface__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[6.679s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/coffee_system_interface__rosidl_typesupport_cExport.cmake
+[6.679s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/coffee_system_interface__rosidl_typesupport_cExport-noconfig.cmake
+[6.679s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/coffee_system_interface__rosidl_typesupport_introspection_cppExport.cmake
+[6.680s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/coffee_system_interface__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[6.680s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/coffee_system_interface__rosidl_typesupport_cppExport.cmake
+[6.680s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/coffee_system_interface__rosidl_typesupport_cppExport-noconfig.cmake
+[6.680s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/export_coffee_system_interface__rosidl_generator_pyExport.cmake
+[6.680s] -- Installing: /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/share/coffee_system_interface/cmake/export_coffee_system_interface__rosidl_generator_pyExport-noconfig.cmake
+[6.683s] Invoked command in '/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yoonkangrok/turtlebot3_ws/install/turtlebot3_teleop:/home/yoonkangrok/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --install /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface

@@ -7,6 +7,8 @@ import rclpy
 from rclpy.node import Node
 from coffee_system_interface.srv import MySrv
 from functools import partial
+from PyQt5 import QtWidgets, QtCore
+from coffee_system_interface.msg import CallStaff
 
 # turtlebot3
 from nav2_msgs.srv import SetInitialPose
@@ -37,6 +39,8 @@ class KitchenNode(Node):
     def __init__(self):
         super().__init__('kitchen_node')
         self.service = self.create_service(MySrv, 'order_food', self.handle_order_request)
+        # staff call
+        self.subscription = self.create_subscription(CallStaff, 'staff_call', self.handle_staff_call, 10)
         self.init_pose = [-1.92, 0.0, 0.0, 1.0] # pose:x,y orient:z,w
 
         self.goal_poses = {
@@ -78,6 +82,11 @@ class KitchenNode(Node):
         response.success = True
         response.message = "주문 전송 완료"
         return response
+    
+    def handle_staff_call(self, msg):
+        self.get_logger().info(f'테이블 {msg.table_num} : {msg.message}')
+        # 메인 스레드로 직원 호출 신호 전달
+        self.window.staff_call_signal.emit(msg.table_num, msg.message)
 
     # Service client SET INIT POSE ESTIMATE
     def set_initial_pose(self, x,y,z,w):
@@ -165,6 +174,7 @@ class KitchenNode(Node):
 
 class KitchenApp(QtWidgets.QMainWindow):
     order_received = pyqtSignal(int, list)  # 주문 수신 시그널
+    staff_call_signal = QtCore.pyqtSignal(int, str)
 
     def __init__(self):
         super().__init__()
@@ -180,6 +190,8 @@ class KitchenApp(QtWidgets.QMainWindow):
 
         self.init_ui()
         self.order_received.connect(self.display_order_popup)
+        # ROS2 콜백이 수신한 메시지를 Qt UI로 전달하는 신호 연결
+        self.staff_call_signal.connect(self.show_staff_call_popup)
 
     def init_ui(self):
         """UI 초기화 및 레이아웃 설정"""
@@ -192,50 +204,78 @@ class KitchenApp(QtWidgets.QMainWindow):
         self.order_list_widget = QtWidgets.QListWidget()
         main_layout.addWidget(self.order_list_widget)
 
+        # 메인 창 크기 조정
+        self.resize(800, 600)  # 창 크기를 넓게 설정
+
+    def show_staff_call_popup(self, table_num, message):
+        """직원 호출 팝업 표시"""
+        QtWidgets.QMessageBox.information(
+            self, "직원 호출", f"테이블 {table_num}: {message}"
+        )
+
     def display_order_popup(self, table_num, items):
         """주문 수신 시 팝업 창 표시"""
         dialog = QtWidgets.QDialog(self)
         dialog.setWindowTitle(f"테이블 {table_num} 주문")
         
+        # 팝업 크기 조정
+        dialog.resize(400, 300)
+
         layout = QtWidgets.QVBoxLayout()
         layout.addWidget(QtWidgets.QLabel(f"테이블 {table_num} 주문 내역:\n" + "\n".join(items)))
         
         accept_button = QtWidgets.QPushButton("주문 수락")
+        accept_button.setMinimumHeight(40)  # 버튼 높이 조정
         accept_button.clicked.connect(partial(self.accept_order, dialog, table_num, items))
         layout.addWidget(accept_button)
 
         reject_button = QtWidgets.QPushButton("주문 거절")
+        reject_button.setMinimumHeight(40)  # 버튼 높이 조정
         reject_button.clicked.connect(partial(self.reject_order, dialog, table_num))
         layout.addWidget(reject_button)
 
         dialog.setLayout(layout)
         dialog.exec_()
 
+
     def accept_order(self, dialog, table_num, items):
         """주문 수락 처리"""
         dialog.accept()
-        order_item = QtWidgets.QListWidgetItem(f"테이블 {table_num} - {', '.join(items)}")
 
-        # 주문 상태 버튼 추가
+        # 주문 상태 텍스트 포함한 QLabel 생성
+        self.order_status = f"테이블 {table_num} - {', '.join(items)} - 대기 중"
+        order_item = QtWidgets.QListWidgetItem()
+        
+        # 주문 상태 라벨 추가
         order_widget = QtWidgets.QWidget()
-        order_layout = QtWidgets.QHBoxLayout(order_widget)
+        main_layout = QtWidgets.QVBoxLayout(order_widget)
+        main_layout.setContentsMargins(0, 0, 0, 0)
         
+        self.order_label = QtWidgets.QLabel(self.order_status)
+        main_layout.addWidget(self.order_label)
+        
+        # 버튼 레이아웃 추가
+        button_layout = QtWidgets.QHBoxLayout()
+        
+        # "조리 중" 버튼
         in_progress_button = QtWidgets.QPushButton("조리 중")
-        in_progress_button.clicked.connect(partial(self.update_order_status, order_item, "조리 중"))
-        order_layout.addWidget(in_progress_button)
+        in_progress_button.setMinimumHeight(15)
+        in_progress_button.clicked.connect(partial(self.update_order_status, table_num, items, "조리 중"))
+        button_layout.addWidget(in_progress_button)
         
+        # "조리 완료" 버튼
         complete_button = QtWidgets.QPushButton("조리 완료")
-        complete_button.clicked.connect(partial(self.complete_order, table_num, order_item))
-        order_layout.addWidget(complete_button)
+        complete_button.setMinimumHeight(15)
+        complete_button.clicked.connect(partial(self.complete_order, table_num, order_item, complete_button, in_progress_button))
+        button_layout.addWidget(complete_button)
 
-        # 주문 항목 및 위젯 설정
+        # 버튼 레이아웃 추가
+        main_layout.addLayout(button_layout)
+
+        # 주문 항목을 리스트에 추가
         order_item.setSizeHint(order_widget.sizeHint())
         self.order_list_widget.addItem(order_item)
         self.order_list_widget.setItemWidget(order_item, order_widget)
-
-        # 주문 수락 메시지 전송
-        self.node.get_logger().info(f"테이블 {table_num} 주문 수락.")
-        self.send_response_to_client(True, "주문이 수락되었습니다.", table_num)
 
     def reject_order(self, dialog, table_num):
         """주문 거절 처리"""
@@ -248,17 +288,26 @@ class KitchenApp(QtWidgets.QMainWindow):
         # 응답 전송 로직 추가 필요 (예: publisher 또는 callback 사용)
         self.node.get_logger().info(f"주문 응답 전송: {message} - 테이블 {table_num}")
 
-    def update_order_status(self, order_item, status):
-        """주문 상태 업데이트"""
-        order_item.setText(order_item.text() + f" - {status}")
-        self.node.get_logger().info(f"주문 상태 업데이트: {status}")
+    def update_order_status(self, table_num, items, status):
+        """주문 상태 업데이트 (조리 중)"""
+        self.order_status = f"테이블 {table_num} - {', '.join(items)} - {status}"
+        self.order_label.setText(self.order_status)
+        self.node.get_logger().info(f"{self.order_status}")
 
-    def complete_order(self, table_num, order_item):
-        """주문 완료 상태로 표시"""
-        order_item.setText(order_item.text() + " - 완료")
+    def complete_order(self, table_num, order_item, complete_button, in_progress_button):
+        """주문 완료 상태로 표시 및 버튼 비활성화"""
+        # 상태 업데이트
+        self.order_status = self.order_label.text() + " - 조리완료"
+        self.order_label.setText(self.order_status)
         self.node.get_logger().info("주문 완료로 표시되었습니다.")
-        # self.node.navigate_to_pose_send_goal(table_num) # 네비게이션 작동
+        
+        # 버튼 비활성화 및 흐리게 설정
+        complete_button.setDisabled(True)
+        in_progress_button.setDisabled(True)
+        complete_button.setStyleSheet("color: gray;")
+        in_progress_button.setStyleSheet("color: gray;")
         self.navigate_to_table_and_return(table_num) # 테이블로 이동 후 복귀
+
 
     # 60초후 복귀
     def navigate_to_table_and_return(self, table_num):

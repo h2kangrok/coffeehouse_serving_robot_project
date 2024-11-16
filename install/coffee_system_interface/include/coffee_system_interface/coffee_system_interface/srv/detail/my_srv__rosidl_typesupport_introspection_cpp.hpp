@@ -1,0 +1,1 @@
+/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_typesupport_introspection_cpp/coffee_system_interface/srv/detail/my_srv__rosidl_typesupport_introspection_cpp.hpp

@@ -1,0 +1,15 @@
+package.xml
+setup.cfg
+setup.py
+coffee_system/__init__.py
+coffee_system/main_kiosk.py
+coffee_system/main_kitchen.py
+coffee_system/turtlebot_gui.py
+coffee_system.egg-info/PKG-INFO
+coffee_system.egg-info/SOURCES.txt
+coffee_system.egg-info/dependency_links.txt
+coffee_system.egg-info/entry_points.txt
+coffee_system.egg-info/requires.txt
+coffee_system.egg-info/top_level.txt
+coffee_system.egg-info/zip-safe
+resource/coffee_system

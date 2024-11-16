@@ -1,0 +1,4 @@
+/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_adapter/coffee_system_interface:msg/MyMsg.idl
+/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_adapter/coffee_system_interface:msg/CallStaff.idl
+/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_adapter/coffee_system_interface:srv/MySrv.idl
+/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_adapter/coffee_system_interface:action/MyAction.idl

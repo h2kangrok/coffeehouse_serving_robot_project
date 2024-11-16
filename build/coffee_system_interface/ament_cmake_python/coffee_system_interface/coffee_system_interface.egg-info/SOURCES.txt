@@ -1,0 +1,13 @@
+setup.py
+coffee_system_interface/__init__.py
+coffee_system_interface.egg-info/PKG-INFO
+coffee_system_interface.egg-info/SOURCES.txt
+coffee_system_interface.egg-info/dependency_links.txt
+coffee_system_interface.egg-info/top_level.txt
+coffee_system_interface/action/__init__.py
+coffee_system_interface/action/_my_action.py
+coffee_system_interface/msg/__init__.py
+coffee_system_interface/msg/_call_staff.py
+coffee_system_interface/msg/_my_msg.py
+coffee_system_interface/srv/__init__.py
+coffee_system_interface/srv/_my_srv.py

@@ -1,0 +1,31 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from coffee_system_interface/srv/MySrv.srv
+// generated code does not contain a copyright notice
+
+
+module coffee_system_interface {
+  module srv {
+    @verbatim (language="comment", text=
+      "Request")
+    struct MySrv_Request {
+      @verbatim (language="comment", text=
+        "테이블 번호")
+      int32 table_num;
+
+      @verbatim (language="comment", text=
+        "주문 내역")
+      sequence<string> items;
+    };
+    @verbatim (language="comment", text=
+      "Response")
+    struct MySrv_Response {
+      @verbatim (language="comment", text=
+        "주문 성공 여부")
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "주문 상태 메시지")
+      string message;
+    };
+  };
+};
