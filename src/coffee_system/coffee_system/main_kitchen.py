@@ -18,6 +18,10 @@ from nav2_msgs.action import NavigateToPose
 from rclpy.action.client import GoalStatus
 from PyQt5.QtGui import QPixmap
 
+from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
+from PyQt5.QtMultimediaWidgets import QVideoWidget
+from PyQt5.QtCore import QUrl
+
 
 class ROS2Thread(QThread):
     """별도의 스레드에서 rclpy 스핀을 관리"""
@@ -212,6 +216,9 @@ class RobotDisplayWindow(QtWidgets.QWidget):
 
         self.return_callback = None
 
+        # 음성 플레이어 초기화
+        self.media_player = QMediaPlayer()
+
         # 기본 화면 설정
         self.set_default_display()
 
@@ -227,14 +234,21 @@ class RobotDisplayWindow(QtWidgets.QWidget):
         self.return_button.setEnabled(True)  # 버튼 활성화
         self.return_button.setVisible(True)  # 버튼 보이게 설정
 
+        # 로봇 도착 시 음성 재생
+        self.play_arrival_sound()
+
+    def play_arrival_sound(self):
+        """로봇 도착 시 음성 파일 재생"""
+        sound_url = QUrl.fromLocalFile("/home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system/coffee_system/sounds/맛있게 드세요.mp3")  # 음성 파일 경로
+        self.media_player.setMedia(QMediaContent(sound_url))
+        self.media_player.setVolume(100)  # 볼륨 설정 (0-100)
+        self.media_player.play()
+
     def return_robot(self):
         """돌려보내기 버튼 동작"""
         if self.return_callback:
             self.return_callback()  # 초기 위치 복귀
         self.set_default_display()  # 기본 화면으로 전환
-
-
-
 
 class KitchenApp(QtWidgets.QMainWindow):
     order_received = pyqtSignal(int, list)  # 주문 수신 시그널
@@ -252,6 +266,10 @@ class KitchenApp(QtWidgets.QMainWindow):
         self.node.window = self
         self.ros2_thread = ROS2Thread(self.node)
         self.ros2_thread.start()
+
+        # 음성 플레이어 초기화
+        self.media_player = QMediaPlayer()
+
 
         self.init_ui()
         self.order_received.connect(self.display_order_popup)
@@ -278,8 +296,20 @@ class KitchenApp(QtWidgets.QMainWindow):
             self, "직원 호출", f"테이블 {table_num}: {message}"
         )
 
+    def play_order_received_sound(self):
+        """주문 수신 시 음성 파일 재생"""
+        sound_file = "/home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system/coffee_system/sounds/주문이 들어왔습니다.mp3"  # 음성 파일 경로
+        sound_url = QUrl.fromLocalFile(sound_file)
+        self.media_player.setMedia(QMediaContent(sound_url))
+        self.media_player.setVolume(100)  # 볼륨 설정 (0-100)
+        self.media_player.play()
+
     def display_order_popup(self, table_num, items):
         """주문 수신 시 팝업 창 표시"""
+
+        # 음성 파일 재생
+        self.play_order_received_sound()
+
         dialog = QtWidgets.QDialog(self)
         dialog.setWindowTitle(f"테이블 {table_num} 주문")
         

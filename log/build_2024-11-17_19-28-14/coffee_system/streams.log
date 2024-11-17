@@ -1,0 +1,22 @@
+[0.838s] Invoking command in '/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system': LD_LIBRARY_PATH=/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/lib:/home/yoonkangrok/turtlebot3_ws/install/turtlebot3_msgs/lib:/home/yoonkangrok/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib:/home/yoonkangrok/turtlebot3_ws/install/dynamixel_sdk/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system/build --no-deps symlink_data
+[1.147s] running develop
+[1.148s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[1.148s]   warnings.warn(
+[1.380s] running egg_info
+[1.383s] writing coffee_system.egg-info/PKG-INFO
+[1.383s] writing dependency_links to coffee_system.egg-info/dependency_links.txt
+[1.384s] writing entry points to coffee_system.egg-info/entry_points.txt
+[1.384s] writing requirements to coffee_system.egg-info/requires.txt
+[1.384s] writing top-level names to coffee_system.egg-info/top_level.txt
+[1.384s] reading manifest file 'coffee_system.egg-info/SOURCES.txt'
+[1.386s] writing manifest file 'coffee_system.egg-info/SOURCES.txt'
+[1.390s] running build_ext
+[1.391s] Creating /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system/lib/python3.10/site-packages/coffee-system.egg-link (link to .)
+[1.392s] Installing main_kiosk script to /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system/lib/coffee_system
+[1.394s] Installing main_kitchen script to /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system/lib/coffee_system
+[1.394s] Installing main_robot script to /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system/lib/coffee_system
+[1.394s] Installing turtlebot_gui script to /home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system/lib/coffee_system
+[1.394s] 
+[1.394s] Installed /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system
+[1.394s] running symlink_data
+[1.460s] Invoked command in '/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system' returned '0': LD_LIBRARY_PATH=/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system_interface/lib:/home/yoonkangrok/turtlebot3_ws/install/turtlebot3_msgs/lib:/home/yoonkangrok/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib:/home/yoonkangrok/turtlebot3_ws/install/dynamixel_sdk/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins PYTHONPATH=/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/yoonkangrok/coffeehouse_serving_robot-1/install/coffee_system/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system/build --no-deps symlink_data
