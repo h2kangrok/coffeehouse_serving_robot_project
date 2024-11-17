@@ -20,9 +20,10 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'order_client = coffee_system.main_kiosk:main',
-            'order_server = coffee_system.main_kitchen:main',
+            'main_kiosk = coffee_system.main_kiosk:main',
+            'main_kitchen = coffee_system.main_kitchen:main',
             'turtlebot_gui = coffee_system.turtlebot_gui:main',
+            'main_robot = coffee_system.main_robot:main',
         ],
     },
 )

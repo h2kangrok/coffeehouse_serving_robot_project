@@ -1,4 +1,4 @@
-# main_kitchen.py
+# # main_kitchen.py
 
 import sys
 from PyQt5 import QtWidgets
@@ -16,7 +16,7 @@ from geometry_msgs.msg import Point, Quaternion
 from rclpy.action import ActionClient
 from nav2_msgs.action import NavigateToPose
 from rclpy.action.client import GoalStatus
-
+from PyQt5.QtGui import QPixmap
 
 
 class ROS2Thread(QThread):
@@ -36,7 +36,7 @@ class ROS2Thread(QThread):
         self.wait()  # 스레드 종료 대기
 
 class KitchenNode(Node):
-    def __init__(self):
+    def __init__(self,):
         super().__init__('kitchen_node')
         self.service = self.create_service(MySrv, 'order_food', self.handle_order_request)
         # staff call
@@ -157,20 +157,84 @@ class KitchenNode(Node):
     def navigate_to_pose_action_feedback(self, feedback_msg):
         action_feedback = feedback_msg.feedback
 
+
     def navigate_to_pose_action_result(self, future):
+        """로봇의 액션 결과 처리"""
         action_status = future.result().status
-        action_result = future.result().result
         if action_status == GoalStatus.STATUS_SUCCEEDED:
-
-            message = "[INFO] Action succeeded!."
-            # self.gui.textBrowser.append(message)
-            self.get_logger().info(message) # 메세지 전달 부분
-
+            self.get_logger().info("[INFO] 로봇이 목적지에 도착했습니다.")
+            # 목적지 도착 후 화면 전환
+            self.window.robot_display.return_callback = self.window.return_to_initial_pose  # 초기 위치 복귀 설정
+            self.window.robot_display.show_return_screen()  # 화면 전환
         else:
-            message = f"[WARN] Action failed with status: {action_status}"
-            # self.gui.textBrowser.append(message)
-            self.get_logger().info(message) # 메세지 전달 부분
-    
+            self.get_logger().info(f"[WARN] Action failed with status: {action_status}")
+
+
+class RobotDisplayWindow(QtWidgets.QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Robot Display")
+        
+        # 윈도우 크기 설정
+        self.setFixedSize(600, 550)  # 창 크기를 고정
+
+        self.layout = QtWidgets.QVBoxLayout()
+        self.setLayout(self.layout)
+
+        # 기본 이미지
+        self.image_label = QtWidgets.QLabel()
+        self.image_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.image_label.setScaledContents(True)  # 이미지 크기 QLabel 크기에 맞춤
+        self.layout.addWidget(self.image_label)
+
+        # 돌려보내기 버튼
+        self.return_button = QtWidgets.QPushButton("돌려보내기")
+        self.return_button.clicked.connect(self.return_robot)
+        self.return_button.setEnabled(False)  # 초기에는 비활성화
+        self.return_button.setVisible(False)  # 초기에는 숨김
+        
+        # 스타일 설정: 파란색 배경, 흰색 글씨
+        self.return_button.setStyleSheet("""
+            QPushButton {
+                background-color: #007BFF;  /* 파란색 */
+                color: white;               /* 흰색 글씨 */
+                font-size: 16px;            /* 글씨 크기 */
+                border-radius: 5px;         /* 버튼 모서리 둥글게 */
+                padding: 8px;               /* 여백 */
+            }
+            QPushButton:disabled {
+                background-color: #A9A9A9;  /* 비활성화 상태일 때 회색 */
+                color: white;
+            }
+        """)
+
+        self.layout.addWidget(self.return_button)
+
+        self.return_callback = None
+
+        # 기본 화면 설정
+        self.set_default_display()
+
+    def set_default_display(self):
+        """기본 화면 설정"""
+        self.image_label.setPixmap(QPixmap("src/coffee_system/coffee_system/images/robot_normal.png"))
+        self.return_button.setEnabled(False)  # 버튼 비활성화
+        self.return_button.setVisible(False)  # 버튼 숨김
+
+    def show_return_screen(self):
+        """전환 화면 설정"""
+        self.image_label.setPixmap(QPixmap("src/coffee_system/coffee_system/images/robot_normal_last.png"))
+        self.return_button.setEnabled(True)  # 버튼 활성화
+        self.return_button.setVisible(True)  # 버튼 보이게 설정
+
+    def return_robot(self):
+        """돌려보내기 버튼 동작"""
+        if self.return_callback:
+            self.return_callback()  # 초기 위치 복귀
+        self.set_default_display()  # 기본 화면으로 전환
+
+
+
 
 class KitchenApp(QtWidgets.QMainWindow):
     order_received = pyqtSignal(int, list)  # 주문 수신 시그널
@@ -183,6 +247,7 @@ class KitchenApp(QtWidgets.QMainWindow):
 
         # ROS2 초기화 및 스레드 시작
         rclpy.init()
+        self.robot_display = RobotDisplayWindow()  # 로봇 디스플레이 창 추가
         self.node = KitchenNode()
         self.node.window = self
         self.ros2_thread = ROS2Thread(self.node)
@@ -307,23 +372,28 @@ class KitchenApp(QtWidgets.QMainWindow):
         complete_button.setStyleSheet("color: gray;")
         in_progress_button.setStyleSheet("color: gray;")
         self.navigate_to_table_and_return(table_num) # 테이블로 이동 후 복귀
-
-
-    # 60초후 복귀
-    def navigate_to_table_and_return(self, table_num):
-        """로봇을 테이블로 이동하고 60초 후 초기 위치로 복귀"""
-        self.node.get_logger().info(f"테이블 {table_num}로 이동을 시작합니다.")
-
-        # 테이블로 이동
-        if self.node.navigate_to_pose_send_goal(table_num):
-            self.node.get_logger().info(f"테이블 {table_num}에 도착했습니다. 60초 대기 중...")
-            
-            # 60초 대기 후 init_pose로 복귀
-            QTimer.singleShot(60000, self.return_to_initial_pose)  # 60초 후 실행
     
+
+    def navigate_to_table_and_return(self, table_num):
+        """로봇을 테이블로 이동"""
+        self.node.get_logger().info(f"테이블 {table_num}로 이동을 시작합니다.")
+        self.robot_display.set_default_display()  # 기본 화면 표시
+        self.robot_display.show()  # 화면 표시
+
+        if self.node.navigate_to_pose_send_goal(table_num):
+            self.node.get_logger().info(f"테이블 {table_num}로 이동 중입니다.")
+            # 이동 중에는 기본 화면 유지
+            self.robot_display.set_default_display()
+        else:
+            self.node.get_logger().info("[WARN] 테이블로 이동 실패")
+
+        
+
     def return_to_initial_pose(self):
-        """로봇을 초기 위치로 복귀"""
+        """초기 위치로 복귀"""
         self.node.get_logger().info("초기 위치로 복귀를 시작합니다.")
+        # self.robot_display.stop_timer()
+        self.robot_display.set_default_display()  # 기본 화면으로 전환
         if self.node.navigate_to_pose_send_goal(0):  # 초기 위치 이동
             self.node.get_logger().info("초기 위치로 복귀 완료.")
         else:
@@ -339,7 +409,11 @@ def main():
     app = QtWidgets.QApplication(sys.argv)
     window = KitchenApp()
     window.show()
+    window.robot_display.show()
     sys.exit(app.exec_())
 
 if __name__ == '__main__':
     main()
+
+
+
