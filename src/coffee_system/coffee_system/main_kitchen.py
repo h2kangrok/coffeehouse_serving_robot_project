@@ -555,10 +555,10 @@ class KitchenApp(QtWidgets.QMainWindow):
         in_progress_button.setDisabled(True)
         complete_button.setStyleSheet("color: gray;")
         in_progress_button.setStyleSheet("color: gray;")
-        self.navigate_to_table_and_return(table_num) # 테이블로 이동 후 복귀
+        self.navigate_to_table(table_num) # 테이블로 이동 후 복귀
     
 
-    def navigate_to_table_and_return(self, table_num):
+    def navigate_to_table(self, table_num):
         """로봇을 테이블로 이동"""
         # self.node.get_logger().info(f"테이블 {table_num}로 이동을 시작합니다.")
         message = f"테이블 {table_num}로 이동을 시작합니다."
