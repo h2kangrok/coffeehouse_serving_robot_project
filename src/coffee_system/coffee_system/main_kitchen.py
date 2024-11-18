@@ -1,8 +1,7 @@
-# # main_kitchen.py
-
+# main_kitchen.py
 import sys
 from PyQt5 import QtWidgets
-from PyQt5.QtCore import QThread, pyqtSignal, QTimer
+from PyQt5.QtCore import QThread, pyqtSignal
 import rclpy
 from rclpy.node import Node
 from coffee_system_interface.srv import MySrv
@@ -18,6 +17,7 @@ from nav2_msgs.action import NavigateToPose
 from rclpy.action.client import GoalStatus
 from PyQt5.QtGui import QPixmap
 
+#sound
 from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
 from PyQt5.QtMultimediaWidgets import QVideoWidget
 from PyQt5.QtCore import QUrl
@@ -28,7 +28,7 @@ from mysql.connector import Error
 from std_msgs.msg import String
 from PyQt5.QtCore import QEventLoop
 
-#logg
+#log
 from rclpy.qos import QoSProfile, QoSHistoryPolicy, QoSReliabilityPolicy, QoSDurabilityPolicy
 from coffee_system_interface.msg import LogMsg
 
@@ -52,7 +52,7 @@ class KitchenNode(Node):
     def __init__(self,):
         super().__init__('kitchen_node')
 
-        #######################
+        # log ###################
         log_qos = QoSProfile(
             history=QoSHistoryPolicy.KEEP_LAST,
             depth=10,
@@ -63,16 +63,16 @@ class KitchenNode(Node):
 
 
         self.service = self.create_service(MySrv, 'order_food', self.handle_order_request)
-        # logg 추가
+        # log ###################
         self.system_log_publisher = self.create_publisher(LogMsg, 'system_logging', qos_profile=log_qos)
         log_msg = LogMsg()
         log_msg.log = "서비스를 기다리는 중 ... "
         self.system_log_publisher.publish(log_msg)  
+        #########################
 
-          ###########################################
         self.order_publisher = self.create_publisher(String, 'accepted_orders', 10)  # 주문 수락 토픽 생성
 
-        # 데이터베이스 연결 설정
+        # 데이터베이스 연결 설정###
         try:
             self.conn = mysql.connector.connect(
                 host='localhost',
@@ -84,11 +84,12 @@ class KitchenNode(Node):
             self.get_logger().info('데이터베이스 연결 성공')
         except Error as e:
             self.get_logger().error(f'데이터베이스 연결 실패: {str(e)}')
-            raise#
-#######################################################################3
+            raise
+        ##########################
         
         # staff call
         self.subscription = self.create_subscription(CallStaff, 'staff_call', self.handle_staff_call, 10)
+
         self.init_pose = [-1.92, 0.0, 0.0, 1.0] # pose:x,y orient:z,w
 
         self.goal_poses = {
@@ -104,7 +105,6 @@ class KitchenNode(Node):
             9: [-1.14, -0.89]
         }
 
-        #######################################################################################
         # pose 서비스 클라이언트 설정
         self.set_initial_pose_service_client = self.create_client(
             SetInitialPose, 
@@ -121,7 +121,6 @@ class KitchenNode(Node):
         while not self.set_initial_pose_service_client.wait_for_service(timeout_sec=1.0):
             self.get_logger().info('Service /set_initial_pose not available, waiting again...')
         self.set_initial_pose(*self.init_pose) # 언패킹하여 각 인수로 전달
-        #######################################################################################
 
 
     def handle_order_request(self, request, response):
@@ -135,6 +134,7 @@ class KitchenNode(Node):
         return response
     
     def handle_staff_call(self, msg):
+        """키오스크에서 들어온 직원 호출을 처리"""
         self.get_logger().info(f'테이블 {msg.table_num} : {msg.message}')
         # 메인 스레드로 직원 호출 신호 전달
         self.window.staff_call_signal.emit(msg.table_num, msg.message)
@@ -163,8 +163,7 @@ class KitchenNode(Node):
         log_msg = LogMsg()
         log_msg.log = message
         self.system_log_publisher.publish(log_msg)
-        
-        
+    
         return future.result()
 
     ## Action client NAVIGATE
@@ -196,6 +195,7 @@ class KitchenNode(Node):
         return True
     
     def navigate_to_pose_action_goal(self, future):
+        """로봇의 액션 골 처리"""
         goal_handle = future.result()
         if not goal_handle.accepted:
             message = "[WARN] Action goal rejected."
@@ -210,8 +210,8 @@ class KitchenNode(Node):
         self.action_result_future.add_done_callback(self.navigate_to_pose_action_result)
 
     def navigate_to_pose_action_feedback(self, feedback_msg):
+        """로봇의 액션 피드백 처리"""
         action_feedback = feedback_msg.feedback
-
 
     def navigate_to_pose_action_result(self, future):
         """로봇의 액션 결과 처리"""
@@ -228,52 +228,6 @@ class KitchenNode(Node):
             self.window.robot_display.show_return_screen()  # 화면 전환
         else:
             self.get_logger().info(f"[WARN] Action failed with status: {action_status}")
-
-         # 이벤트 루프 생성 및 결과 대기
-        # loop = QEventLoop()
-        # self.send_goal_future.add_done_callback(lambda _: loop.quit())
-        # loop.exec_()  # 비동기 작업 완료까지 대기
-
-        # goal_handle = self.send_goal_future.result()
-        # if not goal_handle.accepted:
-        #     message = "[WARN] Action goal rejected."
-        #     self.get_logger().info(message)
-        #     log_msg = LogMsg()
-        #     log_msg.log = message
-        #     self.system_log_publisher.publish(log_msg)
-        #     return False
-
-        # message = "[INFO] Action goal accepted."
-        # self.get_logger().info(message)
-        # log_msg = LogMsg()
-        # log_msg.log = message
-        # self.system_log_publisher.publish(log_msg)
-
-        # # 결과 대기
-        # self.action_result_future = goal_handle.get_result_async()
-        # self.action_result_future.add_done_callback(lambda _: loop.quit())
-        # loop.exec_()  # 비동기 작업 완료까지 대기
-
-        # action_status = self.action_result_future.result().status
-        # if action_status == GoalStatus.STATUS_SUCCEEDED:
-        #     message = "[INFO] Action succeeded!"
-        #     self.get_logger().info(message)
-        #     log_msg = LogMsg()
-        #     log_msg.log = message
-        #     self.system_log_publisher.publish(log_msg)
-        #     return True
-        # else:
-        #     message = f"[WARN] Action failed with status: {action_status}"
-        #     self.get_logger().info(message)
-        #     log_msg = LogMsg()
-        #     log_msg.log = message
-        #     self.system_log_publisher.publish(log_msg)
-        #     return False
-
-
-    def navigate_to_pose_action_feedback(self, feedback_msg):
-        action_feedback = feedback_msg.feedback
-
 
 class RobotDisplayWindow(QtWidgets.QWidget):
     def __init__(self):
@@ -371,7 +325,6 @@ class KitchenApp(QtWidgets.QMainWindow):
         # 음성 플레이어 초기화
         self.media_player = QMediaPlayer()
 
-
         self.init_ui()
         self.order_received.connect(self.display_order_popup)
         # ROS2 콜백이 수신한 메시지를 Qt UI로 전달하는 신호 연결
@@ -388,11 +341,10 @@ class KitchenApp(QtWidgets.QMainWindow):
         self.order_list_widget = QtWidgets.QListWidget()
         main_layout.addWidget(self.order_list_widget)
 
-        ############## 매출 내역 버튼 추가 ###############
+        #매출 내역 버튼 추가
         self.sales_report_button = QtWidgets.QPushButton("매출 내역")
         self.sales_report_button.clicked.connect(self.show_sales_report)
         main_layout.addWidget(self.sales_report_button)
-        ###################################################
 
         # 메인 창 크기 조정
         self.resize(800, 600)  # 창 크기를 넓게 설정
@@ -407,9 +359,8 @@ class KitchenApp(QtWidgets.QMainWindow):
 
 
     def show_staff_call_popup(self, table_num, message):
-
-        self.play_call_staff()
         """직원 호출 팝업 표시"""
+        self.play_call_staff()
         QtWidgets.QMessageBox.information(
             self, "직원 호출", f"테이블 {table_num}: {message}"
         )
@@ -425,11 +376,12 @@ class KitchenApp(QtWidgets.QMainWindow):
     def display_order_popup(self, table_num, items):
         """주문 수신 시 팝업 창 표시"""
 
-        # log추가 ###########################################
+        # log추가 ##########
         log_msg = LogMsg()
         log_msg.log = f"테이블 {table_num} 주문 수신"
         self.node.system_log_publisher.publish(log_msg)
-        ######################################################
+        ####################
+
         # 음성 파일 재생
         self.play_order_received_sound()    
 
@@ -454,7 +406,6 @@ class KitchenApp(QtWidgets.QMainWindow):
 
         dialog.setLayout(layout)
         dialog.exec_()
-
 
     def accept_order(self, dialog, table_num, items):
         """주문 수락 처리"""
@@ -495,18 +446,17 @@ class KitchenApp(QtWidgets.QMainWindow):
         self.order_list_widget.addItem(order_item)
         self.order_list_widget.setItemWidget(order_item, order_widget)
 
-        ##########################################
         # 주문 수락 메시지 퍼블리시
         order_message = f"테이블 {table_num}, 주문 내역: {', '.join(items)}, 주문 승낙 여부: 승낙"
         self.node.order_publisher.publish(String(data=order_message))
         self.node.get_logger().info(f"주문 수락 메시지: {order_message}")
-        ########################################################################
 
         self.send_response_to_client(True, "주문이 수락되었습니다.", table_num)
-        # log추가 #####################################################
+        # log추가 ###############
         log_msg = LogMsg()
         log_msg.log = f"테이블 {table_num} 주문 수락"
         self.node.system_log_publisher.publish(log_msg)
+        #########################
 
     def reject_order(self, dialog, table_num):
         """주문 거절 처리"""
@@ -527,7 +477,6 @@ class KitchenApp(QtWidgets.QMainWindow):
         log_msg.log = msg
         self.node.system_log_publisher.publish(log_msg)
 
-
     def update_order_status(self, table_num, items, status):
         """주문 상태 업데이트 (조리 중)"""
         self.order_status = f"테이블 {table_num} - {', '.join(items)} - {status}"
@@ -535,9 +484,10 @@ class KitchenApp(QtWidgets.QMainWindow):
         self.node.get_logger().info(f"{self.order_status}")
         log_msg = LogMsg()
 
-        ####### log 추가
+        # log 추가#########
         log_msg.log = self.order_status
         self.node.system_log_publisher.publish(log_msg)
+        ##################
 
     def complete_order(self, table_num, order_item, complete_button, in_progress_button):
         """주문 완료 상태로 표시 및 버튼 비활성화"""
@@ -557,7 +507,6 @@ class KitchenApp(QtWidgets.QMainWindow):
         in_progress_button.setStyleSheet("color: gray;")
         self.navigate_to_table(table_num) # 테이블로 이동 후 복귀
     
-
     def navigate_to_table(self, table_num):
         """로봇을 테이블로 이동"""
         # self.node.get_logger().info(f"테이블 {table_num}로 이동을 시작합니다.")
@@ -576,8 +525,6 @@ class KitchenApp(QtWidgets.QMainWindow):
         else:
             self.node.get_logger().info("[WARN] 테이블로 이동 실패")
 
-        
-
     def return_to_initial_pose(self):
         """초기 위치로 복귀"""
         # self.node.get_logger().info("초기 위치로 복귀를 시작합니다.")
@@ -588,8 +535,8 @@ class KitchenApp(QtWidgets.QMainWindow):
         log_msg.log = message
         self.node.system_log_publisher.publish(log_msg)
         # self.robot_display.stop_timer()
-        self.robot_display.set_default_display()  # 기본 화면으로 전환
         if self.node.navigate_to_pose_send_goal(0):  # 초기 위치 이동
+            self.robot_display.set_default_display()  # 기본 화면으로 전환
             # self.node.get_logger().info("초기 위치로 복귀 완료.")
             message = "초기 위치로 복귀 완료."
             self.node.get_logger().info(message)
@@ -604,7 +551,7 @@ class KitchenApp(QtWidgets.QMainWindow):
             log_msg.log = message
             self.node.system_log_publisher.publish(log_msg)
 
-      ############### 매출 내역 팝업 창 표시 ###############
+      #매출 내역 팝업 창 표시
     def show_sales_report(self):
         """오늘 날짜의 매출 내역 팝업 창 표시"""
         self.node.get_logger().info("매출 내역 팝업 호출")
@@ -643,10 +590,6 @@ class KitchenApp(QtWidgets.QMainWindow):
             dialog.exec_()
         except Error as e:
             self.node.get_logger().error(f"매출 데이터를 가져오는 중 오류 발생: {str(e)}")
-
-
-    ###################################################
-
 
     def closeEvent(self, event):
         """앱 종료 시 ROS2 스레드 정리"""
