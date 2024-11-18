@@ -23,7 +23,7 @@ class OrderDatabaseServer(Node):
             self.conn = mysql.connector.connect(
                 host='127.0.0.1',
                 user='root',
-                password='1111',
+                password='',
                 database='coffeeOrder'
             )
             self.cursor = self.conn.cursor(buffered=True)

@@ -77,7 +77,7 @@ class KitchenNode(Node):
             self.conn = mysql.connector.connect(
                 host='localhost',
                 user='root',
-                password='1111',
+                password='',
                 database='coffeeOrder',
             )
             self.cursor = self.conn.cursor(buffered=True)
