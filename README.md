@@ -10,6 +10,8 @@
 - 주방 화면
 - log 화면
 - DB 화면
+## Video
+[스크린캐스트 2024년 11월 18일 17시 08분 49초.webm](https://github.com/user-attachments/assets/05348441-7bf4-4f46-9235-3577c779dda1)
 
 ## 🧩 Node 
 ![image](https://github.com/user-attachments/assets/5461a672-0a79-411c-9920-861057d725c8)
