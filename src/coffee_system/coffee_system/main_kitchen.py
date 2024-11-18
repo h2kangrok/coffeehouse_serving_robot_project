@@ -22,6 +22,10 @@ from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
 from PyQt5.QtMultimediaWidgets import QVideoWidget
 from PyQt5.QtCore import QUrl
 
+#DB
+import mysql.connector
+from mysql.connector import Error
+from std_msgs.msg import String
 
 class ROS2Thread(QThread):
     """별도의 스레드에서 rclpy 스핀을 관리"""
@@ -43,6 +47,24 @@ class KitchenNode(Node):
     def __init__(self,):
         super().__init__('kitchen_node')
         self.service = self.create_service(MySrv, 'order_food', self.handle_order_request)
+
+          ###########################################
+        self.order_publisher = self.create_publisher(String, 'accepted_orders', 10)  # 주문 수락 토픽 생성
+
+        # 데이터베이스 연결 설정
+        try:
+            self.conn = mysql.connector.connect(
+                host='localhost',
+                user='root',
+                password='1111',
+                database='coffeeOrder',
+            )
+            self.cursor = self.conn.cursor(buffered=True)
+            self.get_logger().info('데이터베이스 연결 성공')
+        except Error as e:
+            self.get_logger().error(f'데이터베이스 연결 실패: {str(e)}')
+            raise#
+#######################################################################3
         # staff call
         self.subscription = self.create_subscription(CallStaff, 'staff_call', self.handle_staff_call, 10)
         self.init_pose = [-1.92, 0.0, 0.0, 1.0] # pose:x,y orient:z,w
@@ -287,6 +309,12 @@ class KitchenApp(QtWidgets.QMainWindow):
         self.order_list_widget = QtWidgets.QListWidget()
         main_layout.addWidget(self.order_list_widget)
 
+        ############## 매출 내역 버튼 추가 ###############
+        self.sales_report_button = QtWidgets.QPushButton("매출 내역")
+        self.sales_report_button.clicked.connect(self.show_sales_report)
+        main_layout.addWidget(self.sales_report_button)
+        ###################################################
+
         # 메인 창 크기 조정
         self.resize(800, 600)  # 창 크기를 넓게 설정
 
@@ -383,6 +411,13 @@ class KitchenApp(QtWidgets.QMainWindow):
         self.order_list_widget.addItem(order_item)
         self.order_list_widget.setItemWidget(order_item, order_widget)
 
+        ##########################################
+        # 주문 수락 메시지 퍼블리시
+        order_message = f"테이블 {table_num}, 주문 내역: {', '.join(items)}, 주문 승낙 여부: 승낙"
+        self.node.order_publisher.publish(String(data=order_message))
+        self.node.get_logger().info(f"주문 수락 메시지: {order_message}")
+        ########################################################################
+
     def reject_order(self, dialog, table_num):
         """주문 거절 처리"""
         dialog.reject()
@@ -439,6 +474,49 @@ class KitchenApp(QtWidgets.QMainWindow):
             self.node.get_logger().info("초기 위치로 복귀 완료.")
         else:
             self.node.get_logger().info("초기 위치 복귀 실패.")
+
+      ############### 매출 내역 팝업 창 표시 ###############
+    def show_sales_report(self):
+        """오늘 날짜의 매출 내역 팝업 창 표시"""
+        self.node.get_logger().info("매출 내역 팝업 호출")
+        try:
+            # 오늘 날짜의 매출 데이터를 가져오는 쿼리
+            query = """
+            SELECT SUM(total_price) AS today_sales
+            FROM orders
+            WHERE DATE(order_time) = CURDATE();
+            """
+            self.node.get_logger().info(f"Executing query: {query}")
+            self.node.cursor.execute(query)
+            result = self.node.cursor.fetchone()
+
+            # 쿼리 결과 확인
+            self.node.get_logger().info(f"Query result: {result}")
+
+            # 매출 데이터 처리
+            if result and result[0] is not None:
+                today_sales = result[0]
+                sales_report = f"오늘 날짜의 총 매출: {today_sales:.2f}원"
+            else:
+                sales_report = "오늘 날짜의 매출 데이터가 없습니다."
+
+            # 팝업 창 생성
+            dialog = QtWidgets.QDialog(self)
+            dialog.setWindowTitle("매출 내역")
+            layout = QtWidgets.QVBoxLayout()
+            layout.addWidget(QtWidgets.QLabel(sales_report))
+
+            close_button = QtWidgets.QPushButton("닫기")
+            close_button.clicked.connect(dialog.accept)
+            layout.addWidget(close_button)
+
+            dialog.setLayout(layout)
+            dialog.exec_()
+        except Error as e:
+            self.node.get_logger().error(f"매출 데이터를 가져오는 중 오류 발생: {str(e)}")
+
+
+    ###################################################
 
 
     def closeEvent(self, event):

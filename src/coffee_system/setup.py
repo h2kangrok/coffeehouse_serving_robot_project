@@ -23,7 +23,7 @@ setup(
             'main_kiosk = coffee_system.main_kiosk:main',
             'main_kitchen = coffee_system.main_kitchen:main',
             'turtlebot_gui = coffee_system.turtlebot_gui:main',
-            'main_robot = coffee_system.main_robot:main',
+            'order_database_server = coffee_system.order_database_server:main',
         ],
     },
 )

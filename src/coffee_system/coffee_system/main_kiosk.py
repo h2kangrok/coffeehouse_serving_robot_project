@@ -288,15 +288,54 @@ class CoffeeKiosk(QtWidgets.QMainWindow):
         self.cart.append(item)
         self.update_cart_display()
 
+    # def update_cart_display(self):
+    #     self.cart_list.clear()
+    #     total = 0
+    #     item_counter = Counter(item['name'] for item in self.cart)
+    #     for item_name, count in item_counter.items():
+    #         price = next(item['price'] for item in self.cart if item['name'] == item_name)
+    #         self.cart_list.addItem(f"{item_name} - {count}개 ({price * count} 원)")
+    #         total += price * count
+    #     self.total_label.setText(f"총 합계: {total} 원")
+
     def update_cart_display(self):
         self.cart_list.clear()
         total = 0
         item_counter = Counter(item['name'] for item in self.cart)
+        
         for item_name, count in item_counter.items():
             price = next(item['price'] for item in self.cart if item['name'] == item_name)
             self.cart_list.addItem(f"{item_name} - {count}개 ({price * count} 원)")
             total += price * count
+
+        # 총 금액을 클래스 변수로 저장
+        self.total_price = total
+
+        # 총 합계 라벨 업데이트
         self.total_label.setText(f"총 합계: {total} 원")
+
+    #####################################
+    # def place_order(self):
+    #     if not self.cart:
+    #         QtWidgets.QMessageBox.warning(self, "빈 장바구니", "먼저 장바구니에 항목을 추가하세요!")
+    #         return
+    #     if self.selected_table is None:
+    #         QtWidgets.QMessageBox.warning(self, "테이블 미선택", "테이블을 선택하세요!")
+    #         return
+
+    #     # 항목 구성
+    #     items = [
+    #         f"{name}: {count}" if count > 1 else name
+    #         for name, count in Counter(item['name'] for item in self.cart).items()
+    #     ]
+
+    #     # 총 금액 정보를 추가
+    #     items.append(f"총 합계: {self.total_price}원")
+
+    #     # 주문 전송
+    #     self.node.send_order(self.selected_table, items, self.order_response_callback)
+
+    ###################################33
 
     def remove_from_cart(self, row):
         self.cart.pop(row)
@@ -330,7 +369,19 @@ class CoffeeKiosk(QtWidgets.QMainWindow):
             msg_box.exec_()
             return
 
-        items = [item['name'] for item in self.cart]
+        # items = [item['name'] for item in self.cart]
+        # self.node.send_order(self.selected_table, items, self.order_callback)
+
+        # 항목 구성
+        items = [
+            f"{name}: {count}" if count > 1 else name
+            for name, count in Counter(item['name'] for item in self.cart).items()
+        ]
+
+        # 총 금액 정보를 추가
+        items.append(f"총 합계: {self.total_price}원")
+
+        # 주문 전송
         self.node.send_order(self.selected_table, items, self.order_callback)
 
     def order_callback(self, future):
