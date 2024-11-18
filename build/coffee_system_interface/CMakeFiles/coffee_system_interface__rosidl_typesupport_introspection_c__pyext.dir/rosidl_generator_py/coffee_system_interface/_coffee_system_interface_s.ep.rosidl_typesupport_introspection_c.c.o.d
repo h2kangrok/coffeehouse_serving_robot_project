@@ -210,6 +210,9 @@ CMakeFiles/coffee_system_interface__rosidl_typesupport_introspection_c__pyext.di
  /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_generator_c/coffee_system_interface/msg/detail/call_staff__type_support.h \
  /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_generator_c/coffee_system_interface/msg/detail/call_staff__struct.h \
  /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_generator_c/coffee_system_interface/msg/detail/call_staff__functions.h \
+ /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__type_support.h \
+ /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__struct.h \
+ /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.h \
  /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_generator_c/coffee_system_interface/srv/detail/my_srv__type_support.h \
  /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_generator_c/coffee_system_interface/srv/detail/my_srv__struct.h \
  /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_generator_c/coffee_system_interface/srv/detail/my_srv__functions.h \

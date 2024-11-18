@@ -8,6 +8,8 @@ file(REMOVE_RECURSE
   "../rosidl_generator_py/coffee_system_interface/msg/__init__.py"
   "../rosidl_generator_py/coffee_system_interface/msg/_call_staff.py"
   "../rosidl_generator_py/coffee_system_interface/msg/_call_staff_s.c"
+  "../rosidl_generator_py/coffee_system_interface/msg/_log_msg.py"
+  "../rosidl_generator_py/coffee_system_interface/msg/_log_msg_s.c"
   "../rosidl_generator_py/coffee_system_interface/msg/_my_msg.py"
   "../rosidl_generator_py/coffee_system_interface/msg/_my_msg_s.c"
   "../rosidl_generator_py/coffee_system_interface/srv/__init__.py"

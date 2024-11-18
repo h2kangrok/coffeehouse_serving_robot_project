@@ -5,6 +5,7 @@ coffee_system/__init__.py
 coffee_system/main_kiosk.py
 coffee_system/main_kitchen.py
 coffee_system/order_database_server.py
+coffee_system/system_logging.py
 coffee_system/turtlebot_gui.py
 coffee_system.egg-info/PKG-INFO
 coffee_system.egg-info/SOURCES.txt

@@ -74,6 +74,10 @@ CMakeFiles/coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_inte
 CMakeFiles/coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/msg/detail/call_staff__builder.hpp
 CMakeFiles/coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/msg/detail/call_staff__struct.hpp
 CMakeFiles/coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/msg/detail/call_staff__traits.hpp
+CMakeFiles/coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/msg/log_msg.hpp
+CMakeFiles/coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/msg/detail/log_msg__builder.hpp
+CMakeFiles/coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/msg/detail/log_msg__struct.hpp
+CMakeFiles/coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/msg/detail/log_msg__traits.hpp
 CMakeFiles/coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/srv/my_srv.hpp
 CMakeFiles/coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/srv/detail/my_srv__builder.hpp
 CMakeFiles/coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/srv/detail/my_srv__struct.hpp
@@ -100,6 +104,7 @@ rosidl_generator_cpp/coffee_system_interface/msg/my_msg.hpp: /opt/ros/humble/sha
 rosidl_generator_cpp/coffee_system_interface/msg/my_msg.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__traits.hpp.em
 rosidl_generator_cpp/coffee_system_interface/msg/my_msg.hpp: rosidl_adapter/coffee_system_interface/msg/MyMsg.idl
 rosidl_generator_cpp/coffee_system_interface/msg/my_msg.hpp: rosidl_adapter/coffee_system_interface/msg/CallStaff.idl
+rosidl_generator_cpp/coffee_system_interface/msg/my_msg.hpp: rosidl_adapter/coffee_system_interface/msg/LogMsg.idl
 rosidl_generator_cpp/coffee_system_interface/msg/my_msg.hpp: rosidl_adapter/coffee_system_interface/srv/MySrv.idl
 rosidl_generator_cpp/coffee_system_interface/msg/my_msg.hpp: rosidl_adapter/coffee_system_interface/action/MyAction.idl
 rosidl_generator_cpp/coffee_system_interface/msg/my_msg.hpp: /opt/ros/humble/share/builtin_interfaces/msg/Duration.idl
@@ -132,6 +137,18 @@ rosidl_generator_cpp/coffee_system_interface/msg/detail/call_staff__struct.hpp: 
 
 rosidl_generator_cpp/coffee_system_interface/msg/detail/call_staff__traits.hpp: rosidl_generator_cpp/coffee_system_interface/msg/my_msg.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/coffee_system_interface/msg/detail/call_staff__traits.hpp
+
+rosidl_generator_cpp/coffee_system_interface/msg/log_msg.hpp: rosidl_generator_cpp/coffee_system_interface/msg/my_msg.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/coffee_system_interface/msg/log_msg.hpp
+
+rosidl_generator_cpp/coffee_system_interface/msg/detail/log_msg__builder.hpp: rosidl_generator_cpp/coffee_system_interface/msg/my_msg.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/coffee_system_interface/msg/detail/log_msg__builder.hpp
+
+rosidl_generator_cpp/coffee_system_interface/msg/detail/log_msg__struct.hpp: rosidl_generator_cpp/coffee_system_interface/msg/my_msg.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/coffee_system_interface/msg/detail/log_msg__struct.hpp
+
+rosidl_generator_cpp/coffee_system_interface/msg/detail/log_msg__traits.hpp: rosidl_generator_cpp/coffee_system_interface/msg/my_msg.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/coffee_system_interface/msg/detail/log_msg__traits.hpp
 
 rosidl_generator_cpp/coffee_system_interface/srv/my_srv.hpp: rosidl_generator_cpp/coffee_system_interface/msg/my_msg.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/coffee_system_interface/srv/my_srv.hpp
@@ -166,9 +183,13 @@ coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/msg/c
 coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/msg/detail/call_staff__builder.hpp
 coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/msg/detail/call_staff__struct.hpp
 coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/msg/detail/call_staff__traits.hpp
+coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/msg/detail/log_msg__builder.hpp
+coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/msg/detail/log_msg__struct.hpp
+coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/msg/detail/log_msg__traits.hpp
 coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/msg/detail/my_msg__builder.hpp
 coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/msg/detail/my_msg__struct.hpp
 coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/msg/detail/my_msg__traits.hpp
+coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/msg/log_msg.hpp
 coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/msg/my_msg.hpp
 coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/srv/detail/my_srv__builder.hpp
 coffee_system_interface__cpp: rosidl_generator_cpp/coffee_system_interface/srv/detail/my_srv__struct.hpp

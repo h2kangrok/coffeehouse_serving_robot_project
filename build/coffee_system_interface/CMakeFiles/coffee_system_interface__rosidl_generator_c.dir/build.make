@@ -84,6 +84,7 @@ rosidl_generator_c/coffee_system_interface/msg/my_msg.h: /opt/ros/humble/share/r
 rosidl_generator_c/coffee_system_interface/msg/my_msg.h: /opt/ros/humble/share/rosidl_generator_c/resource/srv__type_support.h.em
 rosidl_generator_c/coffee_system_interface/msg/my_msg.h: rosidl_adapter/coffee_system_interface/msg/MyMsg.idl
 rosidl_generator_c/coffee_system_interface/msg/my_msg.h: rosidl_adapter/coffee_system_interface/msg/CallStaff.idl
+rosidl_generator_c/coffee_system_interface/msg/my_msg.h: rosidl_adapter/coffee_system_interface/msg/LogMsg.idl
 rosidl_generator_c/coffee_system_interface/msg/my_msg.h: rosidl_adapter/coffee_system_interface/srv/MySrv.idl
 rosidl_generator_c/coffee_system_interface/msg/my_msg.h: rosidl_adapter/coffee_system_interface/action/MyAction.idl
 rosidl_generator_c/coffee_system_interface/msg/my_msg.h: /opt/ros/humble/share/builtin_interfaces/msg/Duration.idl
@@ -117,6 +118,18 @@ rosidl_generator_c/coffee_system_interface/msg/detail/call_staff__struct.h: rosi
 rosidl_generator_c/coffee_system_interface/msg/detail/call_staff__type_support.h: rosidl_generator_c/coffee_system_interface/msg/my_msg.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/coffee_system_interface/msg/detail/call_staff__type_support.h
 
+rosidl_generator_c/coffee_system_interface/msg/log_msg.h: rosidl_generator_c/coffee_system_interface/msg/my_msg.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/coffee_system_interface/msg/log_msg.h
+
+rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.h: rosidl_generator_c/coffee_system_interface/msg/my_msg.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.h
+
+rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__struct.h: rosidl_generator_c/coffee_system_interface/msg/my_msg.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__struct.h
+
+rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__type_support.h: rosidl_generator_c/coffee_system_interface/msg/my_msg.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__type_support.h
+
 rosidl_generator_c/coffee_system_interface/srv/my_srv.h: rosidl_generator_c/coffee_system_interface/msg/my_msg.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/coffee_system_interface/srv/my_srv.h
 
@@ -146,6 +159,9 @@ rosidl_generator_c/coffee_system_interface/msg/detail/my_msg__functions.c: rosid
 
 rosidl_generator_c/coffee_system_interface/msg/detail/call_staff__functions.c: rosidl_generator_c/coffee_system_interface/msg/my_msg.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/coffee_system_interface/msg/detail/call_staff__functions.c
+
+rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c: rosidl_generator_c/coffee_system_interface/msg/my_msg.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c
 
 rosidl_generator_c/coffee_system_interface/srv/detail/my_srv__functions.c: rosidl_generator_c/coffee_system_interface/msg/my_msg.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/coffee_system_interface/srv/detail/my_srv__functions.c
@@ -181,10 +197,24 @@ CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/co
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/call_staff__functions.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_generator_c/coffee_system_interface/msg/detail/call_staff__functions.c -o CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/call_staff__functions.c.s
 
+CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c.o: CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/flags.make
+CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c.o: rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c
+CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c.o: CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c.o -MF CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c.o.d -o CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c.o -c /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c
+
+CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c > CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c.i
+
+CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c -o CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c.s
+
 CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/srv/detail/my_srv__functions.c.o: CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/flags.make
 CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/srv/detail/my_srv__functions.c.o: rosidl_generator_c/coffee_system_interface/srv/detail/my_srv__functions.c
 CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/srv/detail/my_srv__functions.c.o: CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/srv/detail/my_srv__functions.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/srv/detail/my_srv__functions.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/srv/detail/my_srv__functions.c.o -MF CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/srv/detail/my_srv__functions.c.o.d -o CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/srv/detail/my_srv__functions.c.o -c /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_generator_c/coffee_system_interface/srv/detail/my_srv__functions.c
 
 CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/srv/detail/my_srv__functions.c.i: cmake_force
@@ -198,7 +228,7 @@ CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/co
 CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/action/detail/my_action__functions.c.o: CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/flags.make
 CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/action/detail/my_action__functions.c.o: rosidl_generator_c/coffee_system_interface/action/detail/my_action__functions.c
 CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/action/detail/my_action__functions.c.o: CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/action/detail/my_action__functions.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/action/detail/my_action__functions.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/action/detail/my_action__functions.c.o -MF CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/action/detail/my_action__functions.c.o.d -o CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/action/detail/my_action__functions.c.o -c /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_generator_c/coffee_system_interface/action/detail/my_action__functions.c
 
 CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/action/detail/my_action__functions.c.i: cmake_force
@@ -213,6 +243,7 @@ CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/co
 coffee_system_interface__rosidl_generator_c_OBJECTS = \
 "CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/my_msg__functions.c.o" \
 "CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/call_staff__functions.c.o" \
+"CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c.o" \
 "CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/srv/detail/my_srv__functions.c.o" \
 "CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/action/detail/my_action__functions.c.o"
 
@@ -221,6 +252,7 @@ coffee_system_interface__rosidl_generator_c_EXTERNAL_OBJECTS =
 
 libcoffee_system_interface__rosidl_generator_c.so: CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/my_msg__functions.c.o
 libcoffee_system_interface__rosidl_generator_c.so: CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/call_staff__functions.c.o
+libcoffee_system_interface__rosidl_generator_c.so: CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c.o
 libcoffee_system_interface__rosidl_generator_c.so: CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/srv/detail/my_srv__functions.c.o
 libcoffee_system_interface__rosidl_generator_c.so: CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/rosidl_generator_c/coffee_system_interface/action/detail/my_action__functions.c.o
 libcoffee_system_interface__rosidl_generator_c.so: CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/build.make
@@ -230,7 +262,7 @@ libcoffee_system_interface__rosidl_generator_c.so: /opt/ros/humble/lib/libbuilti
 libcoffee_system_interface__rosidl_generator_c.so: /opt/ros/humble/lib/librosidl_runtime_c.so
 libcoffee_system_interface__rosidl_generator_c.so: /opt/ros/humble/lib/librcutils.so
 libcoffee_system_interface__rosidl_generator_c.so: CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C shared library libcoffee_system_interface__rosidl_generator_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C shared library libcoffee_system_interface__rosidl_generator_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -251,10 +283,15 @@ CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/depend: rosidl_genera
 CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/depend: rosidl_generator_c/coffee_system_interface/msg/detail/call_staff__functions.h
 CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/depend: rosidl_generator_c/coffee_system_interface/msg/detail/call_staff__struct.h
 CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/depend: rosidl_generator_c/coffee_system_interface/msg/detail/call_staff__type_support.h
+CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/depend: rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.c
+CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/depend: rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__functions.h
+CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/depend: rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__struct.h
+CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/depend: rosidl_generator_c/coffee_system_interface/msg/detail/log_msg__type_support.h
 CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/depend: rosidl_generator_c/coffee_system_interface/msg/detail/my_msg__functions.c
 CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/depend: rosidl_generator_c/coffee_system_interface/msg/detail/my_msg__functions.h
 CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/depend: rosidl_generator_c/coffee_system_interface/msg/detail/my_msg__struct.h
 CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/depend: rosidl_generator_c/coffee_system_interface/msg/detail/my_msg__type_support.h
+CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/depend: rosidl_generator_c/coffee_system_interface/msg/log_msg.h
 CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/depend: rosidl_generator_c/coffee_system_interface/msg/my_msg.h
 CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/depend: rosidl_generator_c/coffee_system_interface/srv/detail/my_srv__functions.c
 CMakeFiles/coffee_system_interface__rosidl_generator_c.dir/depend: rosidl_generator_c/coffee_system_interface/srv/detail/my_srv__functions.h

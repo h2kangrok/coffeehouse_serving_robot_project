@@ -3,6 +3,7 @@
   "non_idl_tuples": [
     "/home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface:msg/MyMsg.msg",
     "/home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface:msg/CallStaff.msg",
+    "/home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface:msg/LogMsg.msg",
     "/home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface:srv/MySrv.srv",
     "/home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface:action/MyAction.action"
   ]

@@ -24,6 +24,7 @@ setup(
             'main_kitchen = coffee_system.main_kitchen:main',
             'turtlebot_gui = coffee_system.turtlebot_gui:main',
             'order_database_server = coffee_system.order_database_server:main',
+            'sys_logger = coffee_system.system_logging:main',
         ],
     },
 )

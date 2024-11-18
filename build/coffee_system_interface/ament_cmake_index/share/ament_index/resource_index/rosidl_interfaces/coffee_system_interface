@@ -2,6 +2,8 @@ action/MyAction.action
 action/MyAction.idl
 msg/CallStaff.idl
 msg/CallStaff.msg
+msg/LogMsg.idl
+msg/LogMsg.msg
 msg/MyMsg.idl
 msg/MyMsg.msg
 srv/MySrv.idl

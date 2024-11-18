@@ -2,5 +2,6 @@
 main_kiosk = coffee_system.main_kiosk:main
 main_kitchen = coffee_system.main_kitchen:main
 order_database_server = coffee_system.order_database_server:main
+sys_logger = coffee_system.system_logging:main
 turtlebot_gui = coffee_system.turtlebot_gui:main
 

@@ -5,6 +5,7 @@
   "idl_tuples": [
     "/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_adapter/coffee_system_interface:msg/MyMsg.idl",
     "/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_adapter/coffee_system_interface:msg/CallStaff.idl",
+    "/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_adapter/coffee_system_interface:msg/LogMsg.idl",
     "/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_adapter/coffee_system_interface:srv/MySrv.idl",
     "/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_adapter/coffee_system_interface:action/MyAction.idl"
   ],
@@ -26,6 +27,7 @@
     "/opt/ros/humble/share/rosidl_typesupport_c/resource/srv__type_support.cpp.em",
     "/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_adapter/coffee_system_interface/msg/MyMsg.idl",
     "/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_adapter/coffee_system_interface/msg/CallStaff.idl",
+    "/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_adapter/coffee_system_interface/msg/LogMsg.idl",
     "/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_adapter/coffee_system_interface/srv/MySrv.idl",
     "/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_adapter/coffee_system_interface/action/MyAction.idl",
     "/opt/ros/humble/share/builtin_interfaces/msg/Duration.idl",

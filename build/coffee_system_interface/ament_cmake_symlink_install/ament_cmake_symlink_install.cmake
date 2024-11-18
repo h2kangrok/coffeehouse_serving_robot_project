@@ -364,6 +364,9 @@ ament_cmake_symlink_install_files("/home/yoonkangrok/coffeehouse_serving_robot-1
 # install(FILES "/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_adapter/coffee_system_interface/msg/CallStaff.idl" "DESTINATION" "share/coffee_system_interface/msg")
 ament_cmake_symlink_install_files("/home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface" FILES "/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_adapter/coffee_system_interface/msg/CallStaff.idl" "DESTINATION" "share/coffee_system_interface/msg")
 
+# install(FILES "/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_adapter/coffee_system_interface/msg/LogMsg.idl" "DESTINATION" "share/coffee_system_interface/msg")
+ament_cmake_symlink_install_files("/home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface" FILES "/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_adapter/coffee_system_interface/msg/LogMsg.idl" "DESTINATION" "share/coffee_system_interface/msg")
+
 # install(FILES "/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_adapter/coffee_system_interface/srv/MySrv.idl" "DESTINATION" "share/coffee_system_interface/srv")
 ament_cmake_symlink_install_files("/home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface" FILES "/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_adapter/coffee_system_interface/srv/MySrv.idl" "DESTINATION" "share/coffee_system_interface/srv")
 
@@ -375,6 +378,9 @@ ament_cmake_symlink_install_files("/home/yoonkangrok/coffeehouse_serving_robot-1
 
 # install(FILES "/home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface/msg/CallStaff.msg" "DESTINATION" "share/coffee_system_interface/msg")
 ament_cmake_symlink_install_files("/home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface" FILES "/home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface/msg/CallStaff.msg" "DESTINATION" "share/coffee_system_interface/msg")
+
+# install(FILES "/home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface/msg/LogMsg.msg" "DESTINATION" "share/coffee_system_interface/msg")
+ament_cmake_symlink_install_files("/home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface" FILES "/home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface/msg/LogMsg.msg" "DESTINATION" "share/coffee_system_interface/msg")
 
 # install(FILES "/home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface/srv/MySrv.srv" "DESTINATION" "share/coffee_system_interface/srv")
 ament_cmake_symlink_install_files("/home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface" FILES "/home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface/srv/MySrv.srv" "DESTINATION" "share/coffee_system_interface/srv")

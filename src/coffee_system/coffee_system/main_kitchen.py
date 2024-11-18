@@ -26,6 +26,11 @@ from PyQt5.QtCore import QUrl
 import mysql.connector
 from mysql.connector import Error
 from std_msgs.msg import String
+from PyQt5.QtCore import QEventLoop
+
+#logg
+from rclpy.qos import QoSProfile, QoSHistoryPolicy, QoSReliabilityPolicy, QoSDurabilityPolicy
+from coffee_system_interface.msg import LogMsg
 
 class ROS2Thread(QThread):
     """별도의 스레드에서 rclpy 스핀을 관리"""
@@ -46,7 +51,23 @@ class ROS2Thread(QThread):
 class KitchenNode(Node):
     def __init__(self,):
         super().__init__('kitchen_node')
+
+        #######################
+        log_qos = QoSProfile(
+            history=QoSHistoryPolicy.KEEP_LAST,
+            depth=10,
+            reliability=QoSReliabilityPolicy.RELIABLE,
+            durability=QoSDurabilityPolicy.TRANSIENT_LOCAL
+        )
+        #########################
+
+
         self.service = self.create_service(MySrv, 'order_food', self.handle_order_request)
+        # logg 추가
+        self.system_log_publisher = self.create_publisher(LogMsg, 'system_logging', qos_profile=log_qos)
+        log_msg = LogMsg()
+        log_msg.log = "서비스를 기다리는 중 ... "
+        self.system_log_publisher.publish(log_msg)  
 
           ###########################################
         self.order_publisher = self.create_publisher(String, 'accepted_orders', 10)  # 주문 수락 토픽 생성
@@ -65,6 +86,7 @@ class KitchenNode(Node):
             self.get_logger().error(f'데이터베이스 연결 실패: {str(e)}')
             raise#
 #######################################################################3
+        
         # staff call
         self.subscription = self.create_subscription(CallStaff, 'staff_call', self.handle_staff_call, 10)
         self.init_pose = [-1.92, 0.0, 0.0, 1.0] # pose:x,y orient:z,w
@@ -107,6 +129,9 @@ class KitchenNode(Node):
         self.window.order_received.emit(request.table_num, request.items)
         response.success = True
         response.message = "주문 전송 완료"
+        log_msg = LogMsg()
+        log_msg.log = response.message
+        self.system_log_publisher.publish(log_msg)
         return response
     
     def handle_staff_call(self, msg):
@@ -135,6 +160,10 @@ class KitchenNode(Node):
             message = "[WARN] Failed to set initial pose"
             
         self.get_logger().info(message) # 메세지 전달 부분
+        log_msg = LogMsg()
+        log_msg.log = message
+        self.system_log_publisher.publish(log_msg)
+        
         
         return future.result()
 
@@ -188,12 +217,62 @@ class KitchenNode(Node):
         """로봇의 액션 결과 처리"""
         action_status = future.result().status
         if action_status == GoalStatus.STATUS_SUCCEEDED:
-            self.get_logger().info("[INFO] 로봇이 목적지에 도착했습니다.")
+            # self.get_logger().info("[INFO] 로봇이 목적지에 도착했습니다.")
+            message = "[INFO] 로봇이 목적지에 도착했습니다."
+            self.get_logger().info(message)
+            log_msg = LogMsg()
+            log_msg.log = message
+            self.system_log_publisher.publish(log_msg)
             # 목적지 도착 후 화면 전환
             self.window.robot_display.return_callback = self.window.return_to_initial_pose  # 초기 위치 복귀 설정
             self.window.robot_display.show_return_screen()  # 화면 전환
         else:
             self.get_logger().info(f"[WARN] Action failed with status: {action_status}")
+
+         # 이벤트 루프 생성 및 결과 대기
+        # loop = QEventLoop()
+        # self.send_goal_future.add_done_callback(lambda _: loop.quit())
+        # loop.exec_()  # 비동기 작업 완료까지 대기
+
+        # goal_handle = self.send_goal_future.result()
+        # if not goal_handle.accepted:
+        #     message = "[WARN] Action goal rejected."
+        #     self.get_logger().info(message)
+        #     log_msg = LogMsg()
+        #     log_msg.log = message
+        #     self.system_log_publisher.publish(log_msg)
+        #     return False
+
+        # message = "[INFO] Action goal accepted."
+        # self.get_logger().info(message)
+        # log_msg = LogMsg()
+        # log_msg.log = message
+        # self.system_log_publisher.publish(log_msg)
+
+        # # 결과 대기
+        # self.action_result_future = goal_handle.get_result_async()
+        # self.action_result_future.add_done_callback(lambda _: loop.quit())
+        # loop.exec_()  # 비동기 작업 완료까지 대기
+
+        # action_status = self.action_result_future.result().status
+        # if action_status == GoalStatus.STATUS_SUCCEEDED:
+        #     message = "[INFO] Action succeeded!"
+        #     self.get_logger().info(message)
+        #     log_msg = LogMsg()
+        #     log_msg.log = message
+        #     self.system_log_publisher.publish(log_msg)
+        #     return True
+        # else:
+        #     message = f"[WARN] Action failed with status: {action_status}"
+        #     self.get_logger().info(message)
+        #     log_msg = LogMsg()
+        #     log_msg.log = message
+        #     self.system_log_publisher.publish(log_msg)
+        #     return False
+
+
+    def navigate_to_pose_action_feedback(self, feedback_msg):
+        action_feedback = feedback_msg.feedback
 
 
 class RobotDisplayWindow(QtWidgets.QWidget):
@@ -346,6 +425,11 @@ class KitchenApp(QtWidgets.QMainWindow):
     def display_order_popup(self, table_num, items):
         """주문 수신 시 팝업 창 표시"""
 
+        # log추가 ###########################################
+        log_msg = LogMsg()
+        log_msg.log = f"테이블 {table_num} 주문 수신"
+        self.node.system_log_publisher.publish(log_msg)
+        ######################################################
         # 음성 파일 재생
         self.play_order_received_sound()    
 
@@ -418,30 +502,54 @@ class KitchenApp(QtWidgets.QMainWindow):
         self.node.get_logger().info(f"주문 수락 메시지: {order_message}")
         ########################################################################
 
+        self.send_response_to_client(True, "주문이 수락되었습니다.", table_num)
+        # log추가 #####################################################
+        log_msg = LogMsg()
+        log_msg.log = f"테이블 {table_num} 주문 수락"
+        self.node.system_log_publisher.publish(log_msg)
+
     def reject_order(self, dialog, table_num):
         """주문 거절 처리"""
         dialog.reject()
         self.node.get_logger().info(f"테이블 {table_num} 주문 거절")
         self.send_response_to_client(False, "주문이 거절되었습니다.", table_num)
+        log_msg = LogMsg()
+        log_msg.log = f"테이블 {table_num} 주문 거절"
+        self.node.system_log_publisher.publish(log_msg)
 
     def send_response_to_client(self, success, message, table_num):
         """키오스크로 주문 수락/거절 상태 응답"""
         # 응답 전송 로직 추가 필요 (예: publisher 또는 callback 사용)
-        self.node.get_logger().info(f"주문 응답 전송: {message} - 테이블 {table_num}")
+        # self.node.get_logger().info(f"주문 응답 전송: {message} - 테이블 {table_num}")
+        msg = f"주문 응답 전송: {message} - 테이블 {table_num}"
+        self.node.get_logger().info(msg)
+        log_msg = LogMsg()
+        log_msg.log = msg
+        self.node.system_log_publisher.publish(log_msg)
+
 
     def update_order_status(self, table_num, items, status):
         """주문 상태 업데이트 (조리 중)"""
         self.order_status = f"테이블 {table_num} - {', '.join(items)} - {status}"
         self.order_label.setText(self.order_status)
         self.node.get_logger().info(f"{self.order_status}")
+        log_msg = LogMsg()
+
+        ####### log 추가
+        log_msg.log = self.order_status
+        self.node.system_log_publisher.publish(log_msg)
 
     def complete_order(self, table_num, order_item, complete_button, in_progress_button):
         """주문 완료 상태로 표시 및 버튼 비활성화"""
         # 상태 업데이트
         self.order_status = self.order_label.text() + " - 조리완료"
         self.order_label.setText(self.order_status)
-        self.node.get_logger().info("주문 완료로 표시되었습니다.")
-        
+        # self.node.get_logger().info("주문 완료로 표시되었습니다.")
+        message = "주문 완료로 표시되였습니다."
+        self.node.get_logger().info(message)
+        log_msg = LogMsg()
+        log_msg.log = message
+
         # 버튼 비활성화 및 흐리게 설정
         complete_button.setDisabled(True)
         in_progress_button.setDisabled(True)
@@ -452,7 +560,12 @@ class KitchenApp(QtWidgets.QMainWindow):
 
     def navigate_to_table_and_return(self, table_num):
         """로봇을 테이블로 이동"""
-        self.node.get_logger().info(f"테이블 {table_num}로 이동을 시작합니다.")
+        # self.node.get_logger().info(f"테이블 {table_num}로 이동을 시작합니다.")
+        message = f"테이블 {table_num}로 이동을 시작합니다."
+        self.node.get_logger().info(message)
+        log_msg = LogMsg()
+        log_msg.log = message
+        self.node.system_log_publisher.publish(log_msg)
         self.robot_display.set_default_display()  # 기본 화면 표시
         self.robot_display.show()  # 화면 표시
 
@@ -467,13 +580,29 @@ class KitchenApp(QtWidgets.QMainWindow):
 
     def return_to_initial_pose(self):
         """초기 위치로 복귀"""
-        self.node.get_logger().info("초기 위치로 복귀를 시작합니다.")
+        # self.node.get_logger().info("초기 위치로 복귀를 시작합니다.")
+        message = "초기 위치로 복귀를 시작합니다."
+        self.robot_display.set_default_display()
+        self.node.get_logger().info(message)
+        log_msg = LogMsg()
+        log_msg.log = message
+        self.node.system_log_publisher.publish(log_msg)
         # self.robot_display.stop_timer()
         self.robot_display.set_default_display()  # 기본 화면으로 전환
         if self.node.navigate_to_pose_send_goal(0):  # 초기 위치 이동
-            self.node.get_logger().info("초기 위치로 복귀 완료.")
+            # self.node.get_logger().info("초기 위치로 복귀 완료.")
+            message = "초기 위치로 복귀 완료."
+            self.node.get_logger().info(message)
+            log_msg = LogMsg()
+            log_msg.log = message
+            self.node.system_log_publisher.publish(log_msg)
         else:
-            self.node.get_logger().info("초기 위치 복귀 실패.")
+            # self.node.get_logger().info("초기 위치 복귀 실패.")
+            message = "초기 위치 복귀 실패."
+            self.node.get_logger().info(message)
+            log_msg = LogMsg()
+            log_msg.log = message
+            self.node.system_log_publisher.publish(log_msg)
 
       ############### 매출 내역 팝업 창 표시 ###############
     def show_sales_report(self):

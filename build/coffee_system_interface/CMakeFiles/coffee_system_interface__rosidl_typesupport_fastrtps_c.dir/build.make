@@ -79,6 +79,7 @@ rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/my_msg__rosidl_
 rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/my_msg__rosidl_typesupport_fastrtps_c.h: /opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource/srv__type_support_c.cpp.em
 rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/my_msg__rosidl_typesupport_fastrtps_c.h: rosidl_adapter/coffee_system_interface/msg/MyMsg.idl
 rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/my_msg__rosidl_typesupport_fastrtps_c.h: rosidl_adapter/coffee_system_interface/msg/CallStaff.idl
+rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/my_msg__rosidl_typesupport_fastrtps_c.h: rosidl_adapter/coffee_system_interface/msg/LogMsg.idl
 rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/my_msg__rosidl_typesupport_fastrtps_c.h: rosidl_adapter/coffee_system_interface/srv/MySrv.idl
 rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/my_msg__rosidl_typesupport_fastrtps_c.h: rosidl_adapter/coffee_system_interface/action/MyAction.idl
 rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/my_msg__rosidl_typesupport_fastrtps_c.h: /opt/ros/humble/share/builtin_interfaces/msg/Duration.idl
@@ -99,6 +100,12 @@ rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/call_staff__ros
 
 rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/call_staff__type_support_c.cpp: rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/my_msg__rosidl_typesupport_fastrtps_c.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/call_staff__type_support_c.cpp
+
+rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__rosidl_typesupport_fastrtps_c.h: rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/my_msg__rosidl_typesupport_fastrtps_c.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__rosidl_typesupport_fastrtps_c.h
+
+rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp: rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/my_msg__rosidl_typesupport_fastrtps_c.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp
 
 rosidl_typesupport_fastrtps_c/coffee_system_interface/srv/detail/my_srv__rosidl_typesupport_fastrtps_c.h: rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/my_msg__rosidl_typesupport_fastrtps_c.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_c/coffee_system_interface/srv/detail/my_srv__rosidl_typesupport_fastrtps_c.h
@@ -140,10 +147,24 @@ CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typ
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/call_staff__type_support_c.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/call_staff__type_support_c.cpp -o CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/call_staff__type_support_c.cpp.s
 
+CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp.o: CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/flags.make
+CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp.o: rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp
+CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp.o: CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp.o -MF CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp.o.d -o CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp.o -c /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp
+
+CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp > CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp.i
+
+CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp -o CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp.s
+
 CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/srv/detail/my_srv__type_support_c.cpp.o: CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/flags.make
 CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/srv/detail/my_srv__type_support_c.cpp.o: rosidl_typesupport_fastrtps_c/coffee_system_interface/srv/detail/my_srv__type_support_c.cpp
 CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/srv/detail/my_srv__type_support_c.cpp.o: CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/srv/detail/my_srv__type_support_c.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/srv/detail/my_srv__type_support_c.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/srv/detail/my_srv__type_support_c.cpp.o -MF CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/srv/detail/my_srv__type_support_c.cpp.o.d -o CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/srv/detail/my_srv__type_support_c.cpp.o -c /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_typesupport_fastrtps_c/coffee_system_interface/srv/detail/my_srv__type_support_c.cpp
 
 CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/srv/detail/my_srv__type_support_c.cpp.i: cmake_force
@@ -157,7 +178,7 @@ CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typ
 CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/action/detail/my_action__type_support_c.cpp.o: CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/flags.make
 CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/action/detail/my_action__type_support_c.cpp.o: rosidl_typesupport_fastrtps_c/coffee_system_interface/action/detail/my_action__type_support_c.cpp
 CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/action/detail/my_action__type_support_c.cpp.o: CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/action/detail/my_action__type_support_c.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/action/detail/my_action__type_support_c.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/action/detail/my_action__type_support_c.cpp.o -MF CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/action/detail/my_action__type_support_c.cpp.o.d -o CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/action/detail/my_action__type_support_c.cpp.o -c /home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/rosidl_typesupport_fastrtps_c/coffee_system_interface/action/detail/my_action__type_support_c.cpp
 
 CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/action/detail/my_action__type_support_c.cpp.i: cmake_force
@@ -172,6 +193,7 @@ CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typ
 coffee_system_interface__rosidl_typesupport_fastrtps_c_OBJECTS = \
 "CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/my_msg__type_support_c.cpp.o" \
 "CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/call_staff__type_support_c.cpp.o" \
+"CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp.o" \
 "CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/srv/detail/my_srv__type_support_c.cpp.o" \
 "CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/action/detail/my_action__type_support_c.cpp.o"
 
@@ -180,6 +202,7 @@ coffee_system_interface__rosidl_typesupport_fastrtps_c_EXTERNAL_OBJECTS =
 
 libcoffee_system_interface__rosidl_typesupport_fastrtps_c.so: CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/my_msg__type_support_c.cpp.o
 libcoffee_system_interface__rosidl_typesupport_fastrtps_c.so: CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/call_staff__type_support_c.cpp.o
+libcoffee_system_interface__rosidl_typesupport_fastrtps_c.so: CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp.o
 libcoffee_system_interface__rosidl_typesupport_fastrtps_c.so: CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/srv/detail/my_srv__type_support_c.cpp.o
 libcoffee_system_interface__rosidl_typesupport_fastrtps_c.so: CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/coffee_system_interface/action/detail/my_action__type_support_c.cpp.o
 libcoffee_system_interface__rosidl_typesupport_fastrtps_c.so: CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/build.make
@@ -197,7 +220,7 @@ libcoffee_system_interface__rosidl_typesupport_fastrtps_c.so: /opt/ros/humble/li
 libcoffee_system_interface__rosidl_typesupport_fastrtps_c.so: /opt/ros/humble/lib/librosidl_runtime_c.so
 libcoffee_system_interface__rosidl_typesupport_fastrtps_c.so: /opt/ros/humble/lib/librcutils.so
 libcoffee_system_interface__rosidl_typesupport_fastrtps_c.so: CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX shared library libcoffee_system_interface__rosidl_typesupport_fastrtps_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yoonkangrok/coffeehouse_serving_robot-1/build/coffee_system_interface/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX shared library libcoffee_system_interface__rosidl_typesupport_fastrtps_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -212,6 +235,8 @@ CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/depend: ro
 CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/coffee_system_interface/action/detail/my_action__type_support_c.cpp
 CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/call_staff__rosidl_typesupport_fastrtps_c.h
 CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/call_staff__type_support_c.cpp
+CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__rosidl_typesupport_fastrtps_c.h
+CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/log_msg__type_support_c.cpp
 CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/my_msg__rosidl_typesupport_fastrtps_c.h
 CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/coffee_system_interface/msg/detail/my_msg__type_support_c.cpp
 CMakeFiles/coffee_system_interface__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/coffee_system_interface/srv/detail/my_srv__rosidl_typesupport_fastrtps_c.h

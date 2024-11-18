@@ -68,6 +68,7 @@ include CMakeFiles/coffee_system_interface.dir/progress.make
 
 CMakeFiles/coffee_system_interface: /home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface/msg/MyMsg.msg
 CMakeFiles/coffee_system_interface: /home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface/msg/CallStaff.msg
+CMakeFiles/coffee_system_interface: /home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface/msg/LogMsg.msg
 CMakeFiles/coffee_system_interface: /home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system_interface/srv/MySrv.srv
 CMakeFiles/coffee_system_interface: rosidl_cmake/srv/MySrv_Request.msg
 CMakeFiles/coffee_system_interface: rosidl_cmake/srv/MySrv_Response.msg

@@ -71,6 +71,7 @@ coffee_system_interface__py/CMakeFiles/coffee_system_interface__py: rosidl_gener
 coffee_system_interface__py/CMakeFiles/coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/_coffee_system_interface_s.ep.rosidl_typesupport_c.c
 coffee_system_interface__py/CMakeFiles/coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/msg/_my_msg.py
 coffee_system_interface__py/CMakeFiles/coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/msg/_call_staff.py
+coffee_system_interface__py/CMakeFiles/coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/msg/_log_msg.py
 coffee_system_interface__py/CMakeFiles/coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/srv/_my_srv.py
 coffee_system_interface__py/CMakeFiles/coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/action/_my_action.py
 coffee_system_interface__py/CMakeFiles/coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/msg/__init__.py
@@ -78,6 +79,7 @@ coffee_system_interface__py/CMakeFiles/coffee_system_interface__py: rosidl_gener
 coffee_system_interface__py/CMakeFiles/coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/action/__init__.py
 coffee_system_interface__py/CMakeFiles/coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/msg/_my_msg_s.c
 coffee_system_interface__py/CMakeFiles/coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/msg/_call_staff_s.c
+coffee_system_interface__py/CMakeFiles/coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/msg/_log_msg_s.c
 coffee_system_interface__py/CMakeFiles/coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/srv/_my_srv_s.c
 coffee_system_interface__py/CMakeFiles/coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/action/_my_action_s.c
 
@@ -96,6 +98,7 @@ rosidl_generator_py/coffee_system_interface/_coffee_system_interface_s.ep.rosidl
 rosidl_generator_py/coffee_system_interface/_coffee_system_interface_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/rosidl_generator_py/resource/_srv.py.em
 rosidl_generator_py/coffee_system_interface/_coffee_system_interface_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/coffee_system_interface/msg/MyMsg.idl
 rosidl_generator_py/coffee_system_interface/_coffee_system_interface_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/coffee_system_interface/msg/CallStaff.idl
+rosidl_generator_py/coffee_system_interface/_coffee_system_interface_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/coffee_system_interface/msg/LogMsg.idl
 rosidl_generator_py/coffee_system_interface/_coffee_system_interface_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/coffee_system_interface/srv/MySrv.idl
 rosidl_generator_py/coffee_system_interface/_coffee_system_interface_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/coffee_system_interface/action/MyAction.idl
 rosidl_generator_py/coffee_system_interface/_coffee_system_interface_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/builtin_interfaces/msg/Duration.idl
@@ -120,6 +123,9 @@ rosidl_generator_py/coffee_system_interface/msg/_my_msg.py: rosidl_generator_py/
 rosidl_generator_py/coffee_system_interface/msg/_call_staff.py: rosidl_generator_py/coffee_system_interface/_coffee_system_interface_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/coffee_system_interface/msg/_call_staff.py
 
+rosidl_generator_py/coffee_system_interface/msg/_log_msg.py: rosidl_generator_py/coffee_system_interface/_coffee_system_interface_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/coffee_system_interface/msg/_log_msg.py
+
 rosidl_generator_py/coffee_system_interface/srv/_my_srv.py: rosidl_generator_py/coffee_system_interface/_coffee_system_interface_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/coffee_system_interface/srv/_my_srv.py
 
@@ -141,6 +147,9 @@ rosidl_generator_py/coffee_system_interface/msg/_my_msg_s.c: rosidl_generator_py
 rosidl_generator_py/coffee_system_interface/msg/_call_staff_s.c: rosidl_generator_py/coffee_system_interface/_coffee_system_interface_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/coffee_system_interface/msg/_call_staff_s.c
 
+rosidl_generator_py/coffee_system_interface/msg/_log_msg_s.c: rosidl_generator_py/coffee_system_interface/_coffee_system_interface_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/coffee_system_interface/msg/_log_msg_s.c
+
 rosidl_generator_py/coffee_system_interface/srv/_my_srv_s.c: rosidl_generator_py/coffee_system_interface/_coffee_system_interface_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/coffee_system_interface/srv/_my_srv_s.c
 
@@ -157,6 +166,8 @@ coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/action/
 coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/msg/__init__.py
 coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/msg/_call_staff.py
 coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/msg/_call_staff_s.c
+coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/msg/_log_msg.py
+coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/msg/_log_msg_s.c
 coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/msg/_my_msg.py
 coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/msg/_my_msg_s.c
 coffee_system_interface__py: rosidl_generator_py/coffee_system_interface/srv/__init__.py
