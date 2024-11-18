@@ -290,7 +290,18 @@ class KitchenApp(QtWidgets.QMainWindow):
         # 메인 창 크기 조정
         self.resize(800, 600)  # 창 크기를 넓게 설정
 
+    def play_call_staff(self):
+        """음성 파일 재생"""
+        sound_file = "/home/yoonkangrok/coffeehouse_serving_robot-1/src/coffee_system/coffee_system/sounds/직원호출.mp3"  # 음성 파일 경로
+        sound_url = QUrl.fromLocalFile(sound_file)
+        self.media_player.setMedia(QMediaContent(sound_url))
+        self.media_player.setVolume(100)  # 볼륨 설정 (0-100)
+        self.media_player.play()
+
+
     def show_staff_call_popup(self, table_num, message):
+
+        self.play_call_staff()
         """직원 호출 팝업 표시"""
         QtWidgets.QMessageBox.information(
             self, "직원 호출", f"테이블 {table_num}: {message}"
@@ -308,7 +319,7 @@ class KitchenApp(QtWidgets.QMainWindow):
         """주문 수신 시 팝업 창 표시"""
 
         # 음성 파일 재생
-        self.play_order_received_sound()
+        self.play_order_received_sound()    
 
         dialog = QtWidgets.QDialog(self)
         dialog.setWindowTitle(f"테이블 {table_num} 주문")
